@@ -33,6 +33,7 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if Functionalities.myUser != nil{
             let user = Functionalities.myUser
             print(user?.email!)

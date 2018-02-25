@@ -75,9 +75,21 @@ class LoginViewController: UIViewController {
             
             if error == nil {
                 print("You have successfully logged in")
+                
+                if FIRAuth.auth()?.currentUser != nil{
+                    Functionalities.myUser = User(emailAdd: self.emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
+                    if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
+                        Functionalities.myUser?.addUserProfile()
+                        print("login user added")
+                    }
+                    print("login user recorded")
+                }
+                
+                
                 //Goes to home page
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController")
                 self.present(vc!, animated: true, completion: nil)
+                
                 
             } else {
  //               self.showMessage(message: (error?.localizedDescription)!)
@@ -90,14 +102,14 @@ class LoginViewController: UIViewController {
                 activityIndicator.stopAnimating()
             }
         }
-        if FIRAuth.auth()?.currentUser != nil{
-            Functionalities.myUser = User(emailAdd: emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
-            if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
-                Functionalities.myUser?.addUserProfile()
-                print("login user added")
-            }
-            print("login user recorded")
-        }
+//        if FIRAuth.auth()?.currentUser != nil{
+//            Functionalities.myUser = User(emailAdd: emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
+//            if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
+//                Functionalities.myUser?.addUserProfile()
+//                print("login user added")
+//            }
+//            print("login user recorded")
+//        }
 
     }
     @IBAction func registerButtonClicked(_ sender: Any) {

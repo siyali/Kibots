@@ -14,12 +14,17 @@
 		735D6A0820326508001143A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0720326508001143A3 /* AppDelegate.swift */; };
 		735D6A0A20326508001143A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0920326508001143A3 /* ViewController.swift */; };
 		735D6A0D20326508001143A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A0B20326508001143A3 /* Main.storyboard */; };
-		735D6A0F20326508001143A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A0E20326508001143A3 /* Assets.xcassets */; };
 		735D6A1220326508001143A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A1020326508001143A3 /* LaunchScreen.storyboard */; };
 		735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1920327659001143A3 /* LoginViewController.swift */; };
 		735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1B20327FBE001143A3 /* RegisterViewController.swift */; };
 		735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1D2032820B001143A3 /* HomePageViewController.swift */; };
 		735D6A24203295FF001143A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A23203295FE001143A3 /* GoogleService-Info.plist */; };
+		73E7AF87203E23FB002BE337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E7AF86203E23FB002BE337 /* Assets.xcassets */; };
+		73E7AF8920427AD0002BE337 /* SetupFoodHandlerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */; };
+		73E7AF8B2042814A002BE337 /* foodHandlerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */; };
+		73E7AF8D2042976D002BE337 /* AddFoodHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF8C2042976D002BE337 /* AddFoodHandlerViewController.swift */; };
+		73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */; };
+		73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF9C2042AE78002BE337 /* operationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,13 +37,18 @@
 		735D6A0720326508001143A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		735D6A0920326508001143A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		735D6A0C20326508001143A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		735D6A0E20326508001143A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		735D6A1120326508001143A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		735D6A1320326508001143A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		735D6A1920327659001143A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		735D6A1B20327FBE001143A3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		735D6A1D2032820B001143A3 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		735D6A23203295FE001143A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73E7AF86203E23FB002BE337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFoodHandlerTableViewController.swift; sourceTree = "<group>"; };
+		73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodHandlerCell.swift; sourceTree = "<group>"; };
+		73E7AF8C2042976D002BE337 /* AddFoodHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodHandlerViewController.swift; sourceTree = "<group>"; };
+		73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupOperationsTableViewController.swift; sourceTree = "<group>"; };
+		73E7AF9C2042AE78002BE337 /* operationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operationCell.swift; sourceTree = "<group>"; };
 		8A9B7717DC88FAC2B8201870 /* Pods_Kibots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kibots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,16 +104,21 @@
 		735D6A0620326508001143A3 /* Kibots */ = {
 			isa = PBXGroup;
 			children = (
+				73E7AF86203E23FB002BE337 /* Assets.xcassets */,
 				735D6A23203295FE001143A3 /* GoogleService-Info.plist */,
 				735D6A0720326508001143A3 /* AppDelegate.swift */,
 				735D6A0920326508001143A3 /* ViewController.swift */,
 				735D6A0B20326508001143A3 /* Main.storyboard */,
-				735D6A0E20326508001143A3 /* Assets.xcassets */,
 				735D6A1020326508001143A3 /* LaunchScreen.storyboard */,
 				735D6A1320326508001143A3 /* Info.plist */,
 				735D6A1920327659001143A3 /* LoginViewController.swift */,
 				735D6A1B20327FBE001143A3 /* RegisterViewController.swift */,
 				735D6A1D2032820B001143A3 /* HomePageViewController.swift */,
+				73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */,
+				73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */,
+				73E7AF8C2042976D002BE337 /* AddFoodHandlerViewController.swift */,
+				73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */,
+				73E7AF9C2042AE78002BE337 /* operationCell.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -181,7 +196,7 @@
 			files = (
 				735D6A1220326508001143A3 /* LaunchScreen.storyboard in Resources */,
 				735D6A24203295FF001143A3 /* GoogleService-Info.plist in Resources */,
-				735D6A0F20326508001143A3 /* Assets.xcassets in Resources */,
+				73E7AF87203E23FB002BE337 /* Assets.xcassets in Resources */,
 				735D6A0D20326508001143A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,14 +264,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7AF8B2042814A002BE337 /* foodHandlerCell.swift in Sources */,
 				733A66072032A4FD004CC73F /* DataAccessObjects.swift in Sources */,
 				733A660B2032A8A3004CC73F /* Functionalities.swift in Sources */,
+				73E7AF8920427AD0002BE337 /* SetupFoodHandlerTableViewController.swift in Sources */,
+				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
 				735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */,
 				735D6A0A20326508001143A3 /* ViewController.swift in Sources */,
+				73E7AF8D2042976D002BE337 /* AddFoodHandlerViewController.swift in Sources */,
 				735D6A0820326508001143A3 /* AppDelegate.swift in Sources */,
 				735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */,
 				735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */,
 				733A66092032A5F3004CC73F /* User.swift in Sources */,
+				73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
