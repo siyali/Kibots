@@ -13,6 +13,7 @@ class operationCell: UITableViewCell {
     @IBOutlet weak var operationLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

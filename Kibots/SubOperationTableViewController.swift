@@ -1,22 +1,17 @@
 //
-//  SetupOperationsTableViewController.swift
-//  Kibots
+//  SubOperationTableViewController.swift
+//  
 //
-//  Created by Siya Li on 2/25/18.
-//  Copyright © 2018 kibots. All rights reserved.
+//  Created by Siya Li on 2/26/18.
 //
 
 import UIKit
-var suboperations:[[String]] = [["Bagel Bar", "Deli Bar", "Salad Bar", "Grill", "Lunch", "Soups"],["Deli Bar", "Breakfast", "Grill", "Salad Bar", "Raw Products", "Aubon Pan", "Condiment Station", "Hand Tossed Salad"],["Sysco","US Foods"]];
-var tappedRowIndex = 0;
-class SetupOperationsTableViewController: UITableViewController {
 
-    @IBOutlet weak var backBarButton: UIBarButtonItem!
-    var operations:[String] = ["Holding", "Production", "Receiving"];
-    
+class SubOperationTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = backBarButton;
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,28 +33,23 @@ class SetupOperationsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return operations.count
+//        print("rows count")
+//        print(suboperations[tappedRowIndex].count)
+        return suboperations[tappedRowIndex].count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "opCell", for: indexPath) as! operationCell
-        print(operations[indexPath.row])
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subopCell", for: indexPath)
+
         // Configure the cell...
-        //cell.textLabel?.text = operations[indexPath.row]
-        cell.operationLabel.text = operations[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = suboperations[tappedRowIndex][indexPath.row]
+//        print("row content")
+//        print(suboperations[tappedRowIndex][indexPath.row])
         return cell
     }
     
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tappedRowIndex = indexPath.row
-        print("tappedRowIndex")
-        print(tappedRowIndex)
-        performSegue(withIdentifier: "subOperationSeg", sender: self)
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
