@@ -8,6 +8,7 @@
 
 import UIKit
 var suboperations:[[String]] = [["Bagel Bar", "Deli Bar", "Salad Bar", "Grill", "Lunch", "Soups"],["Deli Bar", "Breakfast", "Grill", "Salad Bar", "Raw Products", "Aubon Pan", "Condiment Station", "Hand Tossed Salad"],["Sysco","US Foods"]];
+//var suboperations:[[String]] = [[],[],[]]
 var tappedRowIndex = 0;
 class SetupOperationsTableViewController: UITableViewController {
 

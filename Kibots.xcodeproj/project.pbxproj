@@ -26,6 +26,7 @@
 		73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */; };
 		73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF9C2042AE78002BE337 /* operationCell.swift */; };
 		73E7AFA120447ED5002BE337 /* SubOperationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AFA020447ED5002BE337 /* SubOperationTableViewController.swift */; };
+		73E7AFA32044B562002BE337 /* TakeTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AFA22044B562002BE337 /* TakeTemperatureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupOperationsTableViewController.swift; sourceTree = "<group>"; };
 		73E7AF9C2042AE78002BE337 /* operationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operationCell.swift; sourceTree = "<group>"; };
 		73E7AFA020447ED5002BE337 /* SubOperationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubOperationTableViewController.swift; path = /Users/Siya/Documents/Kibots/Kibots/SubOperationTableViewController.swift; sourceTree = "<absolute>"; };
+		73E7AFA22044B562002BE337 /* TakeTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeTemperatureViewController.swift; sourceTree = "<group>"; };
 		8A9B7717DC88FAC2B8201870 /* Pods_Kibots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kibots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */,
 				73E7AF9C2042AE78002BE337 /* operationCell.swift */,
 				73E7AFA020447ED5002BE337 /* SubOperationTableViewController.swift */,
+				73E7AFA22044B562002BE337 /* TakeTemperatureViewController.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
 				735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */,
 				735D6A0A20326508001143A3 /* ViewController.swift in Sources */,
+				73E7AFA32044B562002BE337 /* TakeTemperatureViewController.swift in Sources */,
 				73E7AF8D2042976D002BE337 /* AddFoodHandlerViewController.swift in Sources */,
 				735D6A0820326508001143A3 /* AppDelegate.swift in Sources */,
 				735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */,
