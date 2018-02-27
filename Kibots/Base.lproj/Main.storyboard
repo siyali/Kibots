@@ -406,7 +406,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GPX-2P-ADM">
                             <connections>
-                                <segue destination="rCf-md-h80" kind="presentation" id="KH5-ER-iUZ"/>
+                                <action selector="addButtonClicked:" destination="kMa-3f-unR" id="7Gg-JH-vly"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRs-Ge-Mvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5698" y="-475"/>
+            <point key="canvasLocation" x="4894" y="-475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DTC-0e-GM2">
@@ -472,24 +472,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFd-c6-qPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3329" y="-474"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6NP-Qt-y6C">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rCf-md-h80" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kFo-3D-amX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0Ge-6c-dNF" kind="relationship" relationship="rootViewController" id="Xza-eR-xlh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxp-BQ-zxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4911" y="-475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8rJ-eD-fOx">
@@ -579,7 +561,6 @@
         <image name="kibots_logo" width="433" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gTH-Wv-IJr"/>
-        <segue reference="E6q-OP-prG"/>
+        <segue reference="dBJ-aM-UFQ"/>
     </inferredMetricsTieBreakers>
 </document>

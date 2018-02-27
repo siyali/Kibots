@@ -73,6 +73,7 @@ class RegisterViewController: UIViewController {
             if error == nil {
                 print("You have successfully signed up")
                 //Goes to home page
+
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController")
                 self.present(vc!, animated: true, completion: nil)
                 

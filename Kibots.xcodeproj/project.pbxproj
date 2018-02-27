@@ -11,6 +11,7 @@
 		733A66072032A4FD004CC73F /* DataAccessObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66062032A4FD004CC73F /* DataAccessObjects.swift */; };
 		733A66092032A5F3004CC73F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66082032A5F3004CC73F /* User.swift */; };
 		733A660B2032A8A3004CC73F /* Functionalities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A660A2032A8A3004CC73F /* Functionalities.swift */; };
+		734867582044DF7B008E7BFB /* SelectedSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734867572044DF7B008E7BFB /* SelectedSetup.swift */; };
 		735D6A0820326508001143A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0720326508001143A3 /* AppDelegate.swift */; };
 		735D6A0A20326508001143A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0920326508001143A3 /* ViewController.swift */; };
 		735D6A0D20326508001143A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A0B20326508001143A3 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		733A66062032A4FD004CC73F /* DataAccessObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessObjects.swift; sourceTree = "<group>"; };
 		733A66082032A5F3004CC73F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		733A660A2032A8A3004CC73F /* Functionalities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functionalities.swift; sourceTree = "<group>"; };
+		734867572044DF7B008E7BFB /* SelectedSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSetup.swift; sourceTree = "<group>"; };
 		735D6A0420326508001143A3 /* Kibots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kibots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D6A0720326508001143A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		735D6A0920326508001143A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				733A66062032A4FD004CC73F /* DataAccessObjects.swift */,
 				733A66082032A5F3004CC73F /* User.swift */,
 				733A660A2032A8A3004CC73F /* Functionalities.swift */,
+				734867572044DF7B008E7BFB /* SelectedSetup.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
 				735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */,
 				735D6A0A20326508001143A3 /* ViewController.swift in Sources */,
+				734867582044DF7B008E7BFB /* SelectedSetup.swift in Sources */,
 				73E7AFA32044B562002BE337 /* TakeTemperatureViewController.swift in Sources */,
 				73E7AF8D2042976D002BE337 /* AddFoodHandlerViewController.swift in Sources */,
 				735D6A0820326508001143A3 /* AppDelegate.swift in Sources */,

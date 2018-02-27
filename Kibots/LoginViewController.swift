@@ -75,15 +75,7 @@ class LoginViewController: UIViewController {
             
             if error == nil {
                 print("You have successfully logged in")
-                
-                if FIRAuth.auth()?.currentUser != nil{
-                    Functionalities.myUser = User(emailAdd: self.emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
-                    if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
-                        Functionalities.myUser?.addUserProfile()
-                        print("login user added")
-                    }
-                    print("login user recorded")
-                }
+                Functionalities.myUser = User(emailAdd: self.emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
                 
                 
                 //Goes to home page

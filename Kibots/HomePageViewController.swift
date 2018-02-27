@@ -34,13 +34,15 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         if Functionalities.myUser != nil{
             let user = Functionalities.myUser
-            print(user?.email!)
-            print("user email")
             userEmailLabel.text = user?.email
             
         }
+        Functionalities().getFoodHandlerList( user: Functionalities.myUser!)
+   
+        
     }
 
     override func didReceiveMemoryWarning() {

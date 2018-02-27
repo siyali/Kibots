@@ -11,13 +11,14 @@ import UIKit
 class SetupFoodHandlerTableViewController: UITableViewController {
 
     @IBOutlet weak var backBarButton: UIBarButtonItem!
-    var food_handlers:[String] = ["Tomas Palma", "Victor Moreno", "Claudia Salgada"];
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationItem.leftItemsSupplementBackButton = true;
         self.navigationItem.backBarButtonItem = backBarButton;
         //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-        print("view load")
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,21 +40,58 @@ class SetupFoodHandlerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return food_handlers.count
+        print("init food_handlers count")
+        print(Functionalities.fhList.count)
+        return Functionalities.fhList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("heihei")
+        
+        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "fhCell", for: indexPath) as! foodHandlerCell
-        print(food_handlers[indexPath.row])
+
  
         // Configure the cell...
-        cell.foodHandlerLabel.text = food_handlers[indexPath.row]
+        cell.foodHandlerLabel.text = Functionalities.fhList[indexPath.row]
         return cell
     }
     
 
+    @IBAction func addButtonClicked(_ sender: Any) {
+        let alertController = UIAlertController(title: "Adding Food Handler", message: "Please input name:", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let field = alertController.textFields![0]
+            if field.text != "" /* as? UITextField*/ {
+
+                // store the food handler data
+                if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
+                    Functionalities.myUser?.addFoodHandlerProfile(fh: field.text!)
+                    print("food handler added")
+
+                    Functionalities.fhList.append(field.text!)
+                    self.tableView.reloadData()
+                }
+
+            } else {
+                print("no user input")
+                // user did not fill field
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Food Handler Name:"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

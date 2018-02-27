@@ -18,5 +18,12 @@ class DataAccessObject {
     func addUser(user: User){
         //self.ref.child("Users").child(user.userID!).setValue(["uid": user.userID])
         self.ref.child("Users").child(user.userID!).setValue(["email": user.email])
+//        self.ref.child("Users").child(user.userID!).setValue(["id": user.userID])
+//        self.ref.child("Users").child(user.email!).setValue(["email": user.email])
+//        self.ref.child("Users").child(user.email!).setValue(["id": user.userID])
     }
+    func addFoodHandler(user: User, foodHandler: String){
+        self.ref.child("Users").child(user.userID!).child("Food Handlers").child(foodHandler).setValue(foodHandler)
+    }
+
 }

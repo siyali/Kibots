@@ -12,7 +12,7 @@ import FirebaseStorage
 class User {
     var userID: String?
     var email: String?
-    
+    let dao = DataAccessObject()
     init(emailAdd: String, uid: String) {
         userID = uid
         email = emailAdd
@@ -20,24 +20,26 @@ class User {
     }
     
     func addUserProfile(){
-        let dao = DataAccessObject()
         dao.addUser(user: self)
     }
+    func addFoodHandlerProfile(fh: String){
+        dao.addFoodHandler(user: self, foodHandler: fh)
+    }
+
+
     func userExist(user:User) -> Bool {
         let ref = FIRDatabase.database().reference()
-        var returnVal = false
-        ref.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
-            let users = snapshot.value as? NSDictionary
-            let keys = users?.allKeys as! [NSString]
-            for key in keys {
-                if (user.userID == key as String) {
-                    returnVal = true
-                    
-                }
+        
+
+        ref.child("Users").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if snapshot.hasChild(user.userID!){
+                Functionalities.userExist = true
             }
+
+
+        
         })
-        
-        return returnVal
-        
+
+        return Functionalities.userExist
     }
 }
