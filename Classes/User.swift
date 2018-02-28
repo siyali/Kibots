@@ -25,7 +25,27 @@ class User {
     func addFoodHandlerProfile(fh: String){
         dao.addFoodHandler(user: self, foodHandler: fh)
     }
-
+    func addHoldingStation( station: String){
+        dao.addHoldingStation(user: self, station: station)
+    }
+    func addHoldingFoodItem(station: String, fooditem: String){
+        dao.addHoldingFoodItem(user: self, station: station, fooditem: fooditem)
+    }
+    func addProductionStation(station: String){
+        dao.addProductionStation(user: self, station: station)
+    }
+    func addProductionFoodItem( station: String, fooditem: String){
+        dao.addProductionFoodItem(user: self, station: station, fooditem: fooditem)
+    }
+    func addReceivingVendor( vendor: String){
+        dao.addReceivingVendor(user: self, vendor: vendor)
+    }
+    func addReceivingStation(vendor: String, station: String){
+        dao.addReceivingStation(user: self, vendor: vendor, station: station)
+    }
+    func addReceivingFoodItem(vendor: String, station: String, fooditem: String){
+        dao.addReceivingFoodItem(user: self, vendor: vendor, station: station, fooditem: fooditem)
+    }
 
     func userExist(user:User) -> Bool {
         let ref = FIRDatabase.database().reference()

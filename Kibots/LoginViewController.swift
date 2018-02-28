@@ -16,6 +16,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
+ 
+        
+//        Functionalities.myUser?.addHoldingStation(station: "Bagel Bar")
+//        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Peanut Butter")
+//        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Grape Jelly")
+//        Functionalities.myUser?.addHoldingStation(station: "Grill")
+//        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Cheese")
+//        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Liquid Egg")
+        
+        print("end adding")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -77,6 +87,7 @@ class LoginViewController: UIViewController {
                 print("You have successfully logged in")
                 Functionalities.myUser = User(emailAdd: self.emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
                 
+
                 
                 //Goes to home page
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController")

@@ -16,6 +16,7 @@ class SetupOperationsTableViewController: UITableViewController {
     var operations:[String] = ["Holding", "Production", "Receiving"];
     
     override func viewDidLoad() {
+        print(Functionalities.vendorDict)
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = backBarButton;
         // Uncomment the following line to preserve selection between presentations
@@ -57,9 +58,14 @@ class SetupOperationsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tappedRowIndex = indexPath.row
-        print("tappedRowIndex")
+        print("tappedRowIndex at op")
         print(tappedRowIndex)
-        performSegue(withIdentifier: "subOperationSeg", sender: self)
+        if tappedRowIndex < 2{
+            performSegue(withIdentifier: "subOpKitchenSeg", sender: self)
+        }
+        else{
+            performSegue(withIdentifier: "subOpVendorSeg", sender: self)
+        }
     }
     /*
     // Override to support conditional editing of the table view.

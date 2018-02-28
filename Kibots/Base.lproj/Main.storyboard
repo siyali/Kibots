@@ -324,21 +324,21 @@
                                 <segue destination="QNX-fr-VG0" kind="presentation" id="8BP-6o-bOj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="egB-6v-tmz"/>
                     </navigationItem>
                     <connections>
                         <outlet property="backBarButton" destination="LtN-7L-Gvk" id="fyF-5l-s4W"/>
-                        <segue destination="jAh-VN-fg3" kind="show" identifier="subOperationSeg" id="PBK-RM-A41"/>
+                        <segue destination="VVb-Td-8Iu" kind="presentation" identifier="subOpKitchenSeg" id="PBK-RM-A41"/>
+                        <segue destination="ZzQ-hp-qxN" kind="presentation" identifier="subOpVendorSeg" id="hrR-U9-nb7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DMj-qi-aoy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4136.8000000000002" y="330.58470764617692"/>
         </scene>
-        <!--Sub Operation Table View Controller-->
+        <!--Kitchen Stations-->
         <scene sceneID="xCM-Ff-5x1">
             <objects>
-                <tableViewController id="jAh-VN-fg3" customClass="SubOperationTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Kitchen Stations" id="jAh-VN-fg3" customClass="SubOperationTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XN8-Fb-vbI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,10 +358,49 @@
                             <outlet property="delegate" destination="jAh-VN-fg3" id="ivc-RC-fl8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Kitchen Station" id="jNZ-2G-Gic">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="MsD-YJ-xJA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XVB-9j-B19"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="gO8-ps-QQB" kind="show" id="YB3-UL-IfC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLS-Cy-hk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4993" y="331"/>
+            <point key="canvasLocation" x="5700" y="198"/>
+        </scene>
+        <!--Food Item-->
+        <scene sceneID="YwT-g0-iqt">
+            <objects>
+                <tableViewController title="Food Item" id="o3Z-cw-fPU" customClass="FoodItemHPTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dtO-70-U0l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wcq-Z5-lGe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wcq-Z5-lGe" id="PJd-75-qKg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o3Z-cw-fPU" id="ziz-Ja-CjY"/>
+                            <outlet property="delegate" destination="o3Z-cw-fPU" id="eQJ-fb-jMz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Food Item" id="4M7-P3-YWT">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="adv-ck-pa2"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Gjh-CS-akW"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tC-sY-g22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7166" y="199"/>
         </scene>
         <!--Food Handlers-->
         <scene sceneID="msf-d0-gq8">
@@ -556,11 +595,203 @@
             </objects>
             <point key="canvasLocation" x="4136.8000000000002" y="1083.5082458770617"/>
         </scene>
+        <!--Vendor-->
+        <scene sceneID="u6a-Z2-r0E">
+            <objects>
+                <tableViewController title="Vendor" id="q5z-Yw-Fo6" customClass="SetupVendorTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W2w-Ew-6ec">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J78-kb-r2w">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J78-kb-r2w" id="GyH-Yc-u0z">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q5z-Yw-Fo6" id="o05-vc-ndS"/>
+                            <outlet property="delegate" destination="q5z-Yw-Fo6" id="Aod-Pf-0DF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Vendor" id="hTl-1P-suj">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="s1F-f8-Van"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ndH-hp-R1C"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="2on-LW-apM" kind="show" id="Gu0-fk-qvY"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sup-gD-9Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5700" y="895"/>
+        </scene>
+        <!--Stations-->
+        <scene sceneID="Apd-5e-8II">
+            <objects>
+                <tableViewController title="Stations" id="CVh-Q2-Mrh" customClass="SetupKitchenRTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MUo-Aa-aAz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QP2-Pq-GDa">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QP2-Pq-GDa" id="0Nv-RM-51v">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CVh-Q2-Mrh" id="bMp-w3-GfM"/>
+                            <outlet property="delegate" destination="CVh-Q2-Mrh" id="Eh6-py-5cR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kitchen Station" id="uxh-1N-vQy">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="uwR-8k-gdh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Scw-HO-L0c"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8ga-TX-XAQ" kind="show" id="5JO-TF-gCd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0Y-JC-mSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7166" y="894"/>
+        </scene>
+        <!--Food Item-->
+        <scene sceneID="zaH-RV-ib8">
+            <objects>
+                <tableViewController title="Food Item" id="xuP-t4-Psu" customClass="FoodItemRTableViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sqK-s7-6Xy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yzF-qC-Hp5">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzF-qC-Hp5" id="bva-pJ-KOr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xuP-t4-Psu" id="les-cO-Je9"/>
+                            <outlet property="delegate" destination="xuP-t4-Psu" id="olJ-3N-cbR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Food Item" id="1Xw-WR-a5e">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="suD-Tu-cxS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNa-f1-rWk"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fd9-Sf-Hgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8726" y="896"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6hs-pV-oMw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VVb-Td-8Iu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pdy-AV-TWt">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jAh-VN-fg3" kind="relationship" relationship="rootViewController" id="28u-PP-y8b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ea-B8-um3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4992" y="199.70014992503749"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ix7-BT-Yhc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gO8-ps-QQB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LRu-lz-P8d">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o3Z-cw-fPU" kind="relationship" relationship="rootViewController" id="Dk8-p0-Fjo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vU-ID-nk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6420.8000000000002" y="198.80059970014995"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8ua-m5-FyS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZzQ-hp-qxN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pLh-qB-5rN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q5z-Yw-Fo6" kind="relationship" relationship="rootViewController" id="5Jb-R5-7ZW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBi-q2-N0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4993.6000000000004" y="895.95202398800609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oh1-0b-YMj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2on-LW-apM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lOf-2w-Pi1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CVh-Q2-Mrh" kind="relationship" relationship="rootViewController" id="0rs-3J-buc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePL-dh-xtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6419.1999999999998" y="894.15292353823099"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z6L-tv-6D0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ga-TX-XAQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ITU-kM-hAW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xuP-t4-Psu" kind="relationship" relationship="rootViewController" id="lNx-QU-OGz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2s-NS-EDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7996" y="896"/>
+        </scene>
     </scenes>
     <resources>
         <image name="kibots_logo" width="433" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dBJ-aM-UFQ"/>
+        <segue reference="8BP-6o-bOj"/>
     </inferredMetricsTieBreakers>
 </document>

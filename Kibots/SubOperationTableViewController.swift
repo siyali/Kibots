@@ -8,7 +8,7 @@
 import UIKit
 
 class SubOperationTableViewController: UITableViewController {
-
+    var tappedRowIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,12 +44,18 @@ class SubOperationTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = suboperations[tappedRowIndex][indexPath.row]
+        cell.accessoryType = .disclosureIndicator
 //        print("row content")
 //        print(suboperations[tappedRowIndex][indexPath.row])
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tappedRowIndex = indexPath.row
+        print("tappedRowIndex at subop")
+        print(tappedRowIndex)
+        performSegue(withIdentifier: "", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

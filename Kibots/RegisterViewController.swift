@@ -72,6 +72,11 @@ class RegisterViewController: UIViewController {
             
             if error == nil {
                 print("You have successfully signed up")
+                print("register USERINFO")
+                Functionalities.myUser = User(emailAdd: self.emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
+                Functionalities.myUser?.addUserProfile()
+                
+                
                 //Goes to home page
 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController")
@@ -88,14 +93,8 @@ class RegisterViewController: UIViewController {
                 activityIndicator.stopAnimating()
             }
         }
-        if FIRAuth.auth()?.currentUser != nil{
-            Functionalities.myUser = User(emailAdd: emailTextField.text!, uid: (FIRAuth.auth()?.currentUser!.uid)!)
-            Functionalities.myUser?.addUserProfile()
-            print("registered user recorded")
-        }
-        
-        
-        
+
+
         
     }
     func showMessage(message:String) -> Void {
