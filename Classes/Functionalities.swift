@@ -47,13 +47,19 @@ class Functionalities{
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
                 print(next.key)
-                let stationName = next.value as! NSDictionary
+                
+                guard let stationName = next.value as? NSDictionary else{
+                    Functionalities.holdingDict[next.key] = []
+                    continue
+                }
+  //              if stationName.allValues == false{
 //                print("station value")
 //               // print(type(of: stationName))
 //                print(stationName)
 //                print(stationName.allKeys)
 //                print(stationName.allValues)
                 Functionalities.holdingDict[next.key] = stationName.allValues as? [String]
+//                }
             }
     
         })
@@ -83,9 +89,14 @@ class Functionalities{
                     print("inside iteration")
                     print(key)
                     print(value)
-                    
+                    var vArr:[String] = []
+                    for v in value as! NSDictionary{
+                        print("food iname")
+                        print(v.value)
+                        vArr.append(v.value as! String)
+                    }
 //                    if (Functionalities.receivingDict[key as! String]?.contains(value as! String))! == false{
-                        Functionalities.receivingDict[key as! String]?.append(value as! String)
+                    Functionalities.receivingDict[key as! String] = vArr
                     print("receiving dict")
                     print(Functionalities.receivingDict)
 //                    }

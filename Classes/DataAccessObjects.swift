@@ -33,7 +33,7 @@ class DataAccessObject {
         self.ref.child("Users").child(user.userID!).child("Operations").child("Holding").child(station).child(fooditem).setValue(fooditem)
     }
     func addProductionStation(user: User, station: String){
-        self.ref.child("Users").child(user.userID!).child("Operations").child("Production").child(station).setValue(station)
+        self.ref.child("Users").child(user.userID!).child("Operations").child("Production").child(station).setValue(["uninitialized station":"uninitialized station"])
     }
     func addProductionFoodItem(user: User, station: String, fooditem: String){
         self.ref.child("Users").child(user.userID!).child("Operations").child("Production").child(station).child(fooditem).setValue(fooditem)

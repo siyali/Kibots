@@ -9,7 +9,7 @@
 import UIKit
 
 class SetupVendorTableViewController: UITableViewController {
-
+    var selectedRI = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +46,12 @@ class SetupVendorTableViewController: UITableViewController {
         cell.textLabel?.text = "heihei"
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRI = indexPath.row
+        print("selected Row Index at subop")
+        print(selectedRI)
+        performSegue(withIdentifier: "", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.

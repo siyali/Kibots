@@ -327,7 +327,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBarButton" destination="LtN-7L-Gvk" id="fyF-5l-s4W"/>
-                        <segue destination="VVb-Td-8Iu" kind="presentation" identifier="subOpKitchenSeg" id="PBK-RM-A41"/>
+                        <segue destination="VVb-Td-8Iu" kind="show" identifier="subOpKitchenSeg" id="PBK-RM-A41"/>
                         <segue destination="ZzQ-hp-qxN" kind="presentation" identifier="subOpVendorSeg" id="hrR-U9-nb7"/>
                     </connections>
                 </tableViewController>
@@ -359,8 +359,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kitchen Station" id="jNZ-2G-Gic">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="MsD-YJ-xJA"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XVB-9j-B19"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="MsD-YJ-xJA">
+                            <connections>
+                                <segue destination="nms-b6-Yer" kind="show" id="KTJ-if-Tnl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XVB-9j-B19">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="jAh-VN-fg3" id="nBK-E6-HU2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="gO8-ps-QQB" kind="show" id="YB3-UL-IfC"/>
@@ -619,7 +627,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vendor" id="hTl-1P-suj">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="s1F-f8-Van"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="s1F-f8-Van">
+                            <connections>
+                                <segue destination="nms-b6-Yer" kind="presentation" id="fT6-yH-whF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ndH-hp-R1C"/>
                     </navigationItem>
                     <connections>
@@ -792,6 +804,7 @@
         <image name="kibots_logo" width="433" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fT6-yH-whF"/>
         <segue reference="8BP-6o-bOj"/>
     </inferredMetricsTieBreakers>
 </document>

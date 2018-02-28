@@ -7,9 +7,14 @@
 //
 
 import UIKit
-var suboperations:[[String]] = [["Bagel Bar", "Deli Bar", "Salad Bar", "Grill", "Lunch", "Soups"],["Deli Bar", "Breakfast", "Grill", "Salad Bar", "Raw Products", "Aubon Pan", "Condiment Station", "Hand Tossed Salad"],["Sysco","US Foods"]];
+//var suboperations:[[String]] = [["Bagel Bar", "Deli Bar", "Salad Bar", "Grill", "Lunch", "Soups"],["Deli Bar", "Breakfast", "Grill", "Salad Bar", "Raw Products", "Aubon Pan", "Condiment Station", "Hand Tossed Salad"],["Sysco","US Foods"]];
 //var suboperations:[[String]] = [[],[],[]]
+var suboperations:[[String]] = [] // an array with length 2 containing kitchen stations for Holding and Production
+
 var tappedRowIndex = 0;
+var holdingSelected = false;
+var productionSelected = false;
+
 class SetupOperationsTableViewController: UITableViewController {
 
     @IBOutlet weak var backBarButton: UIBarButtonItem!
@@ -19,6 +24,23 @@ class SetupOperationsTableViewController: UITableViewController {
         print(Functionalities.vendorDict)
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = backBarButton;
+        var stationAllHolding:[String] = []
+        var stationAllProduction:[String] = []
+        for (key,value) in Functionalities.holdingDict{
+            stationAllHolding.append(key)
+        }
+        for (key,value) in Functionalities.productionDict{
+            stationAllProduction.append(key)
+        }
+        if suboperations.isEmpty{
+            suboperations.append(stationAllHolding)
+            suboperations.append(stationAllProduction)
+        }
+        else{
+            suboperations[0] = stationAllHolding
+            suboperations[1] = stationAllProduction
+        }
+        print(suboperations)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -61,6 +83,12 @@ class SetupOperationsTableViewController: UITableViewController {
         print("tappedRowIndex at op")
         print(tappedRowIndex)
         if tappedRowIndex < 2{
+            if tappedRowIndex == 0{
+                holdingSelected = true
+            }
+            else{
+                productionSelected = true
+            }
             performSegue(withIdentifier: "subOpKitchenSeg", sender: self)
         }
         else{
