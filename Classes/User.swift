@@ -25,17 +25,28 @@ class User {
     func addFoodHandlerProfile(fh: String){
         dao.addFoodHandler(user: self, foodHandler: fh)
     }
+    func updateFoodHandlerProfile(fh: [String]){
+        dao.updateFoodHandler(user: self, foodHandlers: fh)
+        
+    }
     func addHoldingStation( station: String){
         dao.addHoldingStation(user: self, station: station)
     }
     func addHoldingFoodItem(station: String, fooditem: String){
         dao.addHoldingFoodItem(user: self, station: station, fooditem: fooditem)
     }
+    func updateHoldingFoodItem(station: String, fooditem: [String]){
+        dao.updateHoldingFoodItem(user: self, station: station, fooditems: fooditem)
+    }
     func addProductionStation(station: String){
         dao.addProductionStation(user: self, station: station)
     }
+
     func addProductionFoodItem( station: String, fooditem: String){
         dao.addProductionFoodItem(user: self, station: station, fooditem: fooditem)
+    }
+    func updateProductionFoodItem( station: String, fooditem: [String]){
+        dao.updateProductionFoodItem(user: self, station: station, fooditems: fooditem)
     }
     func addReceivingVendor( vendor: String){
         dao.addReceivingVendor(user: self, vendor: vendor)

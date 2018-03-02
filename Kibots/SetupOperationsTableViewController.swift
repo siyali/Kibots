@@ -9,38 +9,28 @@
 import UIKit
 //var suboperations:[[String]] = [["Bagel Bar", "Deli Bar", "Salad Bar", "Grill", "Lunch", "Soups"],["Deli Bar", "Breakfast", "Grill", "Salad Bar", "Raw Products", "Aubon Pan", "Condiment Station", "Hand Tossed Salad"],["Sysco","US Foods"]];
 //var suboperations:[[String]] = [[],[],[]]
+
 var suboperations:[[String]] = [] // an array with length 2 containing kitchen stations for Holding and Production
 
-var tappedRowIndex = 0;
-var holdingSelected = false;
-var productionSelected = false;
+
 
 class SetupOperationsTableViewController: UITableViewController {
 
     @IBOutlet weak var backBarButton: UIBarButtonItem!
     var operations:[String] = ["Holding", "Production", "Receiving"];
-    
+    var tappedRowIndex = 0;
     override func viewDidLoad() {
-        print(Functionalities.vendorDict)
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = backBarButton;
-        var stationAllHolding:[String] = []
-        var stationAllProduction:[String] = []
-        for (key,value) in Functionalities.holdingDict{
-            stationAllHolding.append(key)
-        }
-        for (key,value) in Functionalities.productionDict{
-            stationAllProduction.append(key)
-        }
-        if suboperations.isEmpty{
-            suboperations.append(stationAllHolding)
-            suboperations.append(stationAllProduction)
-        }
-        else{
-            suboperations[0] = stationAllHolding
-            suboperations[1] = stationAllProduction
-        }
-        print(suboperations)
+  
+//        for (key,_) in Functionalities().getVendorDict(){
+//            if Functionalities.vendorList.contains(key) == false{
+//                Functionalities.vendorList.append(key)
+//            }
+//        }
+ 
+//        print("vendor list")
+//        print(Functionalities.vendorList)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -80,18 +70,24 @@ class SetupOperationsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tappedRowIndex = indexPath.row
-        print("tappedRowIndex at op")
-        print(tappedRowIndex)
+
         if tappedRowIndex < 2{
             if tappedRowIndex == 0{
-                holdingSelected = true
+                Functionalities.tappedOperation = "Holding"
+                Functionalities().getHoldingDict()
+                Functionalities().getHoldingStations()
             }
             else{
-                productionSelected = true
+                Functionalities.tappedOperation = "Production"
+                Functionalities().getProductionDict()
+                Functionalities().getProductionStations()
             }
             performSegue(withIdentifier: "subOpKitchenSeg", sender: self)
         }
         else{
+            
+            Functionalities().getVendorDict()
+            Functionalities().getVendorList()
             performSegue(withIdentifier: "subOpVendorSeg", sender: self)
         }
     }

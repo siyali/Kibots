@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
 class SetupFoodHandlerTableViewController: UITableViewController {
 
     @IBOutlet weak var backBarButton: UIBarButtonItem!
-
-
+    
+    var databaseHandle: FIRDatabaseHandle?
+    var local_foodhandlers = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationItem.leftItemsSupplementBackButton = true;
         self.navigationItem.backBarButtonItem = backBarButton;
         //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,6 +28,27 @@ class SetupFoodHandlerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // listen for update with the .Value event
+//        ref.observeEventType(.Value) { (snapshot) in
+//
+//            var newItems = [FDataSnapshot]()
+//
+//            // loop through the children and append them to the new array
+//            for item in snapshot.children {
+//                newItems.append(item as! FDataSnapshot)
+//            }
+//
+//            // replace the old array
+//            self.items = newItems
+//            // reload the UITableView
+//            self.tableView.reloadData()
+//        }
+ 
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,7 +64,7 @@ class SetupFoodHandlerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         print("init food_handlers count")
-        print(Functionalities.fhList.count)
+        //print(Functionalities().getFoodHandlerList())
         return Functionalities.fhList.count
     }
 
@@ -54,6 +77,7 @@ class SetupFoodHandlerTableViewController: UITableViewController {
 
  
         // Configure the cell...
+//        cell.foodHandlerLabel.text = Functionalities.fhList[indexPath.row]
         cell.foodHandlerLabel.text = Functionalities.fhList[indexPath.row]
         return cell
     }
@@ -65,16 +89,16 @@ class SetupFoodHandlerTableViewController: UITableViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             let field = alertController.textFields![0]
             if field.text != "" /* as? UITextField*/ {
-
+                
+                
                 // store the food handler data
-//                if !(Functionalities.myUser?.userExist(user: Functionalities.myUser!))! {
-
-                    Functionalities.myUser?.addFoodHandlerProfile(fh: field.text!)
-                    print("food handler added")
-
-                    Functionalities.fhList.append(field.text!)
+//                Functionalities.myUser?.addFoodHandlerProfile(fh: field.text!)
+                print("food handler added")
+                Functionalities.fhList.append(field.text!)
+                Functionalities.myUser?.updateFoodHandlerProfile(fh: Functionalities.fhList)
+//                DispatchQueue.main.async{
                     self.tableView.reloadData()
-//                }
+  //              }
 
             } else {
                 print("no user input")

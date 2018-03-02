@@ -11,12 +11,15 @@ class SubOperationTableViewController: UITableViewController {
     var selectedRowIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        if holdingSelected == true{
+        if Functionalities.tappedOperation == "Holding"{
             selectedRowIndex = 0
+            Functionalities.holdingItems = []
         }
         else{
             selectedRowIndex = 1
+            Functionalities.productionItems = []
         }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,27 +43,46 @@ class SubOperationTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
 //        print("rows count")
 //        print(suboperations[tappedRowIndex].count)
-        return suboperations[selectedRowIndex].count
+        
+        if selectedRowIndex == 0{
+            Functionalities().getHoldingDict()
+            return Functionalities.holdingStations.count
+        }else{
+            Functionalities().getProductionDict()
+            return Functionalities.productionStations.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subopCell", for: indexPath)
-        print("suboperation selected row index")
-        print(selectedRowIndex)
+
         // Configure the cell...
-        cell.textLabel?.text = suboperations[selectedRowIndex][indexPath.row]
+        if selectedRowIndex == 0{
+            cell.textLabel?.text = Functionalities.holdingStations[indexPath.row]
+        }else{
+            cell.textLabel?.text = Functionalities.productionStations[indexPath.row]
+        }
         cell.accessoryType = .disclosureIndicator
-//        print("row content")
-//        print(suboperations[tappedRowIndex][indexPath.row])
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRowIndex = indexPath.row
-        print("selectedRowIndex at subop")
-        print(selectedRowIndex)
-        performSegue(withIdentifier: "", sender: self)
+        
+        
+        let currentCell = tableView.cellForRow(at: indexPath) //as? UITableViewCell
+        Functionalities.tappedKitchenHP = currentCell?.textLabel!.text
+        Functionalities().getHoldingDict()
+        Functionalities().getProductionDict()
+        
+        if Functionalities.tappedOperation == "Holding" {
+            Functionalities().getHoldingItems(station: Functionalities.tappedKitchenHP!)
+        }else{
+            Functionalities().getProductionItems(station: Functionalities.tappedKitchenHP!)
+        }
+        
+        
+        performSegue(withIdentifier: "foodHP", sender: self)
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -69,13 +91,15 @@ class SubOperationTableViewController: UITableViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             let field = alertController.textFields![0]
             if field.text != "" /* as? UITextField*/ {
-                if holdingSelected == true{
+                if Functionalities.tappedOperation == "Holding"{
+                    Functionalities.holdingStations.append(field.text!)
                     Functionalities.myUser?.addHoldingStation(station: field.text!)
-                    suboperations[0].append(field.text!)
+//                    suboperations[0].append(field.text!)
                 }
-                else if productionSelected == true{
-                    Functionalities.myUser?.addProductionStation(station: field.text!)
-                    suboperations[1].append(field.text!)
+                else if Functionalities.tappedOperation == "Production" {
+                    Functionalities.productionStations.append(field.text!)
+                    Functionalities.myUser?.addProductionStation(station:  field.text!)
+//                    suboperations[1].append(field.text!)
                 }
                 else{
                     print("this should not appear")
@@ -83,9 +107,9 @@ class SubOperationTableViewController: UITableViewController {
                 
                 print("kitchen station added")
                 
-                
-                self.tableView.reloadData()
-                //                }
+//                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+//                }
                 
             } else {
                 print("no user input")

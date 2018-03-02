@@ -12,7 +12,7 @@ class SetupVendorTableViewController: UITableViewController {
     var selectedRI = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Functionalities.vendorKitchens = []
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,25 +34,80 @@ class SetupVendorTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Functionalities.vendorList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "vendorCell", for: indexPath)
 
         // Configure the cell...
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = "heihei"
+        cell.textLabel?.text = Functionalities.vendorList[indexPath.row]
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRI = indexPath.row
         print("selected Row Index at subop")
         print(selectedRI)
-        performSegue(withIdentifier: "", sender: self)
+//        let indexPath = tableView.indexPathForSelectedRow()
+        let currentCell = tableView.cellForRow(at: indexPath) //as? UITableViewCell
+    
+        Functionalities.tappedVendor = currentCell?.textLabel!.text
+        Functionalities().getVendorKitchens()
+        Functionalities().getVendorDict()
+//        Functionalities.tappedVendor = Functionalities.vendorList[indexPath.row]
+        
+        
+//        if Functionalities.vendorDict[Functionalities.tappedVendor!] != nil{
+//            for (key,_) in Functionalities.vendorDict[Functionalities.tappedVendor!]!{
+//                Functionalities.receivedAllKitchen.append(key)
+//            }
+//
+//
+//        }
+//        else{
+//            Functionalities.receivedAllKitchen = []
+//        }
+        
+        
+        print("check types!!!!!!!!")
+        print(type(of: Functionalities.vendorDict[Functionalities.tappedVendor!]))
+       // print(type(of: Array(Functionalities.vendorDict[Functionalities.tappedVendor!]?.keys)))
+        
+        performSegue(withIdentifier: "kitchenR", sender: self)
     }
 
+    @IBAction func addButtonClicked(_ sender: Any) {
+        let alertController = UIAlertController(title: "Adding Vendor", message: "Please input name:", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let field = alertController.textFields![0]
+            if field.text != "" /* as? UITextField*/ {
+                
+                Functionalities.myUser?.addReceivingVendor(vendor: field.text!)
+                Functionalities.vendorList.append(field.text!)
+                //Functionalities().getVendorDict()
+                //Functionalities().getVendorList().append(field.text!)
+                print("vendor added")
+                self.tableView.reloadData()
+            } else {
+                print("no user input")
+                // user did not fill field
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Food Vendor Name:"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -97,5 +152,6 @@ class SetupVendorTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

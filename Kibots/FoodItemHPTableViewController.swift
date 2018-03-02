@@ -29,24 +29,90 @@ class FoodItemHPTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if Functionalities.tappedOperation == "Production"{
+//            let pd = Functionalities.productionDict[Functionalities.tappedKitchenHP!]?.count
+  //          let pd = Functionalities.productionDict[Functionalities.tappedKitchenHP!]?
+        
+            return Functionalities.productionItems.count
+        }
+        else{
+            
+            return Functionalities.holdingItems.count
+            
+        }
+
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fooditemHP", for: indexPath)
 
         // Configure the cell...
-
+     
+      
+        if Functionalities.tappedOperation == "Holding" {
+//            print("each row content")
+//            print(Functionalities.holdingDict[Functionalities.tappedKitchenHP!]?[indexPath.row])
+//            cell.textLabel?.text = Functionalities.holdingDict[Functionalities.tappedKitchenHP!]?[indexPath.row]
+            cell.textLabel?.text = Functionalities.holdingItems[indexPath.row]
+        }
+        else if Functionalities.tappedOperation == "Production"{
+//            cell.textLabel?.text = Functionalities.productionDict[Functionalities.tappedKitchenHP!]?[indexPath.row]
+            cell.textLabel?.text = Functionalities.productionItems[indexPath.row]
+        }
+        else{
+            print("this should not appear")
+        }
         return cell
     }
-    */
-
+    
+    @IBAction func addButtonClicked(_ sender: Any) {
+        let alertController = UIAlertController(title: "Adding Food Item", message: "Please input name:", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let field = alertController.textFields![0]
+            if field.text != "" /* as? UITextField*/ {
+                if Functionalities.tappedOperation == "Holding"{
+                    
+//                    Functionalities.myUser?.addHoldingFoodItem(station: Functionalities.tappedKitchenHP!, fooditem: field.text!)
+                    Functionalities.holdingItems.append(field.text!)
+                    Functionalities.myUser?.updateHoldingFoodItem(station: Functionalities.tappedKitchenHP!, fooditem: Functionalities.holdingItems)
+//                    FunctionalitiesholdingDict[Functionalities.tappedKitchenHP!]?.append(field.text!)
+                }
+                else if Functionalities.tappedOperation == "Production"{
+//                    Functionalities.myUser?.addProductionFoodItem(station: Functionalities.tappedKitchenHP!, fooditem: field.text!)
+                    Functionalities.myUser?.updateProductionFoodItem(station: Functionalities.tappedKitchenHP!, fooditem: Functionalities.productionItems)
+//                    Functionalities.productionDict[Functionalities.tappedKitchenHP!]?.append(field.text!)
+                }else{
+                    print("this should not appear")
+                }
+                print("food item added")
+                self.tableView.reloadData()
+                //                }
+                
+            } else {
+                print("no user input")
+                // user did not fill field
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Food Item Name:"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

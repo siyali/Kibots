@@ -40,8 +40,16 @@ class HomePageViewController: UIViewController {
             userEmailLabel.text = user?.email
             
         }
-        Functionalities().getFoodHandlerList( user: Functionalities.myUser!)
-        Functionalities().getOperationDict(user: Functionalities.myUser!)
+        Functionalities().getFoodHandlerList()
+        Functionalities().getHoldingStations()
+        Functionalities().getHoldingDict()
+        Functionalities().getProductionStations()
+        Functionalities().getProductionDict()
+        Functionalities().getVendorList()
+//        Functionalities().getProductionDict(user: Functionalities.myUser!)
+        
+        
+        
 //        var tmpDict:[String: [String]] = [:]
 //        tmpDict["Bagel Bar"] = ["Grape Jelly","Peanut Butter"]
     //FIRDatabase.database().reference().child("Users").child((Functionalities.myUser?.userID)!).child("Operations").child("Holding").child()

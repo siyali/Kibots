@@ -371,7 +371,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="gO8-ps-QQB" kind="show" id="YB3-UL-IfC"/>
+                        <segue destination="gO8-ps-QQB" kind="show" identifier="foodHP" id="YB3-UL-IfC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLS-Cy-hk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,7 +387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wcq-Z5-lGe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fooditemHP" id="wcq-Z5-lGe">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wcq-Z5-lGe" id="PJd-75-qKg">
@@ -402,8 +402,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Food Item" id="4M7-P3-YWT">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="adv-ck-pa2"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Gjh-CS-akW"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="adv-ck-pa2">
+                            <connections>
+                                <segue destination="VVb-Td-8Iu" kind="presentation" id="ihI-Ph-clD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Gjh-CS-akW">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="o3Z-cw-fPU" id="j67-IJ-VDI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tC-sY-g22" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,25 +472,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAO-xB-Way" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4137" y="-473"/>
-        </scene>
-        <!--Add Food Handler View Controller-->
-        <scene sceneID="jRb-5r-pKu">
-            <objects>
-                <viewController id="0Ge-6c-dNF" customClass="AddFoodHandlerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Aob-Nf-JB4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="54g-7o-mzQ"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="UOy-LT-Zc1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NqV-9i-ktV"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IPF-oV-K38"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MRs-Ge-Mvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4894" y="-475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DTC-0e-GM2">
@@ -601,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iC7-hu-stz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4136.8000000000002" y="1083.5082458770617"/>
+            <point key="canvasLocation" x="2542" y="972"/>
         </scene>
         <!--Vendor-->
         <scene sceneID="u6a-Z2-r0E">
@@ -612,7 +601,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J78-kb-r2w">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vendorCell" id="J78-kb-r2w">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J78-kb-r2w" id="GyH-Yc-u0z">
@@ -632,10 +621,14 @@
                                 <segue destination="nms-b6-Yer" kind="presentation" id="fT6-yH-whF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ndH-hp-R1C"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ndH-hp-R1C">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="q5z-Yw-Fo6" id="Zpl-XH-PJm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="2on-LW-apM" kind="show" id="Gu0-fk-qvY"/>
+                        <segue destination="2on-LW-apM" kind="show" identifier="kitchenR" id="Gu0-fk-qvY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sup-gD-9Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -651,7 +644,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QP2-Pq-GDa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="kitchenRCell" id="QP2-Pq-GDa">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QP2-Pq-GDa" id="0Nv-RM-51v">
@@ -666,11 +659,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kitchen Station" id="uxh-1N-vQy">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="uwR-8k-gdh"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Scw-HO-L0c"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="uwR-8k-gdh">
+                            <connections>
+                                <segue destination="ZzQ-hp-qxN" kind="presentation" id="Iq4-hM-5g4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Scw-HO-L0c">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="CVh-Q2-Mrh" id="JK4-Pz-VKS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8ga-TX-XAQ" kind="show" id="5JO-TF-gCd"/>
+                        <segue destination="8ga-TX-XAQ" kind="show" identifier="fooditemRSeg" id="5JO-TF-gCd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0Y-JC-mSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -686,7 +687,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yzF-qC-Hp5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fooditemRCell" id="yzF-qC-Hp5">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzF-qC-Hp5" id="bva-pJ-KOr">
@@ -701,8 +702,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Food Item" id="1Xw-WR-a5e">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="suD-Tu-cxS"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNa-f1-rWk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="suD-Tu-cxS">
+                            <connections>
+                                <segue destination="2on-LW-apM" kind="presentation" id="xc0-Yb-PeD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNa-f1-rWk">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="xuP-t4-Psu" id="JbS-IG-ROA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd9-Sf-Hgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -804,7 +813,10 @@
         <image name="kibots_logo" width="433" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xc0-Yb-PeD"/>
+        <segue reference="Iq4-hM-5g4"/>
+        <segue reference="ihI-Ph-clD"/>
         <segue reference="fT6-yH-whF"/>
-        <segue reference="8BP-6o-bOj"/>
+        <segue reference="E6q-OP-prG"/>
     </inferredMetricsTieBreakers>
 </document>
