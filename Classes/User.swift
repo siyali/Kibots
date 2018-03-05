@@ -62,7 +62,7 @@ class User {
         let ref = FIRDatabase.database().reference()
         
 
-        ref.child("Users").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+        ref.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if snapshot.hasChild(user.userID!){
                 Functionalities.userExist = true
             }

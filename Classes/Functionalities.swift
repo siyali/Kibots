@@ -45,7 +45,7 @@ class Functionalities{
         let ref = FIRDatabase.database().reference()
         
         
-        databaseHandle = ref.child("Users").child(user.userID!).child("Food Handlers").observe(.value, with: { (snapshot) in
+        databaseHandle = ref.child(user.userID!).child("Food Handlers").observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
                 let handlerName = next.value as! String
@@ -70,7 +70,7 @@ class Functionalities{
     func getHoldingStations() /*-> [String]*/ {
   
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations")
         databaseHandleHolding = ref.child("Holding").observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
@@ -99,7 +99,7 @@ class Functionalities{
     func getProductionStations() /*-> [String] */{
         
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations")
         databaseHandleHolding = ref.child("Production").observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
@@ -112,7 +112,7 @@ class Functionalities{
     }
     func getVendorList() /*-> [String]*/ {
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID!)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID!)!).child("Operations")
         
         databaseHandleReceiving = ref.child("Receiving").observe(.value, with: { (snapshot) in
             
@@ -223,7 +223,7 @@ class Functionalities{
     func getHoldingDict()/* -> [String: [String]] */{
         
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations")
         
         databaseHandleHolding = ref.child("Holding").observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
@@ -251,7 +251,7 @@ class Functionalities{
     func getHoldingItems(station: String){
         
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations")
         
         databaseHandleHolding = ref.child("Holding").child(station).observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
@@ -270,7 +270,7 @@ class Functionalities{
     func getProductionItems(station: String){
         
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations")
         
         databaseHandleHolding = ref.child("Production").child(station).observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
@@ -289,7 +289,7 @@ class Functionalities{
     func getProductionDict() /*-> [String: [String]]*/{
         let user = Functionalities.myUser
         
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID!)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID!)!).child("Operations")
         databaseHandleProduction = ref.child("Production").observe(.value, with: { (snapshot) in
 //            let snap = snapshot.value
             let enumerator = snapshot.children
@@ -309,7 +309,7 @@ class Functionalities{
 
     func getVendorDict() /*-> [String: Dictionary<String, [String]>]*/{
         let user = Functionalities.myUser
-        let ref = FIRDatabase.database().reference().child("Users").child((user?.userID!)!).child("Operations")
+        let ref = FIRDatabase.database().reference().child((user?.userID!)!).child("Operations")
        
         
         

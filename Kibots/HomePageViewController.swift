@@ -45,6 +45,8 @@ class HomePageViewController: UIViewController {
         Functionalities().getHoldingDict()
         Functionalities().getProductionStations()
         Functionalities().getProductionDict()
+//        Functionalities().getVendorDict()
+//        Functionalities().getVendorKitchens()
         Functionalities().getVendorList()
 //        Functionalities().getProductionDict(user: Functionalities.myUser!)
         
@@ -56,7 +58,7 @@ class HomePageViewController: UIViewController {
 //        Functionalities.myUser?.addHoldingStation(station: "Bagel Bar")
 //        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Peanut Butter")
 //        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Grape Jelly")
-        Functionalities.myUser?.addHoldingStation(station: "Soups")
+//        Functionalities.myUser?.addHoldingStation(station: "Soups")
 //        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Cheese")
 //        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Liquid Egg")
 //        Functionalities.myUser?.addReceivingVendor(vendor: "Sysco")
