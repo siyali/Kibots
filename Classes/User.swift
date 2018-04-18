@@ -57,7 +57,12 @@ class User {
     func addReceivingFoodItem(vendor: String, station: String, fooditem: String){
         dao.addReceivingFoodItem(user: self, vendor: vendor, station: station, fooditem: fooditem)
     }
-
+    func updateMinMaxTemp(hpr: String, station: String, fooditem: String, min: Int, max: Int){
+        if(hpr == "Holding") || (hpr == "Production") || (hpr == "Receiving"){
+            dao.updateMinMaxTemp(hpr: hpr, user: self, station: station, fooditem: fooditem, min: min, max:max)
+        }
+        
+    }
     func userExist(user:User) -> Bool {
         let ref = FIRDatabase.database().reference()
         

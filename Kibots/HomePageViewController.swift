@@ -34,7 +34,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         if Functionalities.myUser != nil{
             let user = Functionalities.myUser
             userEmailLabel.text = user?.email
@@ -76,6 +76,12 @@ class HomePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    @IBAction func btnDeviceSetupClicked(_ sender: UIButton) {
+//        let deviceList = self.storyboard?.instantiateViewController(withIdentifier: "vcBLEDeviceListVC") as! BLEDeviceListVC
+//        
+//        self.navigationController?.pushViewController(deviceList, animated: true)
+//    }
     
 
     /*

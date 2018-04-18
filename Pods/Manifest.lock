@@ -38,12 +38,37 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
+  - Moscapsule (0.6.2)
+  - OpenSSL-Universal (1.0.2.13)
+  - SwiftyBluetooth (1.0.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Moscapsule (from `https://github.com/flightonary/Moscapsule.git`)
+  - OpenSSL-Universal (from `https://github.com/krzyzanowskim/OpenSSL.git`)
+  - SwiftyBluetooth (from `https://github.com/jordanebelanger/SwiftyBluetooth.git`)
+
+EXTERNAL SOURCES:
+  Moscapsule:
+    :git: https://github.com/flightonary/Moscapsule.git
+  OpenSSL-Universal:
+    :git: https://github.com/krzyzanowskim/OpenSSL.git
+  SwiftyBluetooth:
+    :git: https://github.com/jordanebelanger/SwiftyBluetooth.git
+
+CHECKOUT OPTIONS:
+  Moscapsule:
+    :commit: b6e268e9254fe28a0f897471514192904133a860
+    :git: https://github.com/flightonary/Moscapsule.git
+  OpenSSL-Universal:
+    :commit: 0c1c8d69738a383acc7da377f0c8222f7783ca6e
+    :git: https://github.com/krzyzanowskim/OpenSSL.git
+  SwiftyBluetooth:
+    :commit: 7f92e052b22344a3df4edae6d18af3467a39cc6a
+    :git: https://github.com/jordanebelanger/SwiftyBluetooth.git
 
 SPEC CHECKSUMS:
   Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
@@ -55,7 +80,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  Moscapsule: 7c272cc4f434b5805effc237ecb1668fdb7aba5d
+  OpenSSL-Universal: 401888162f11c33ebbd46f782d9229da35c61327
+  SwiftyBluetooth: 7b8c34eac26188896d96be6d373385c0e189304b
 
-PODFILE CHECKSUM: afc7efb9e598f8899fe00e0b3f31521e3739920f
+PODFILE CHECKSUM: c7ff4e857e36fc96aee69ec2e7899ed56b5492c5
 
 COCOAPODS: 1.4.0

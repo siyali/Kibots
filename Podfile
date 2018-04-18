@@ -10,4 +10,8 @@ target 'Kibots' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'OpenSSL-Universal', :git => 'https://github.com/krzyzanowskim/OpenSSL.git'
+  pod 'SwiftyBluetooth', :git => 'https://github.com/jordanebelanger/SwiftyBluetooth.git'
+  pod 'Moscapsule', :git => 'https://github.com/flightonary/Moscapsule.git'
+
 end

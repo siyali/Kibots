@@ -24,6 +24,9 @@
 		739108882046421D0081F378 /* FoodItemHPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739108872046421D0081F378 /* FoodItemHPTableViewController.swift */; };
 		7391088A204642410081F378 /* FoodItemRTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910889204642410081F378 /* FoodItemRTableViewController.swift */; };
 		7391088C2046427D0081F378 /* SetupKitchenRTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7391088B2046427D0081F378 /* SetupKitchenRTableViewController.swift */; };
+		73B66A3820590F0500C28955 /* FoodResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B66A3720590F0500C28955 /* FoodResultVC.swift */; };
+		73B66A3A20590FDA00C28955 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B66A3920590FDA00C28955 /* GlobalVariables.swift */; };
+		73E7724120598727007AF1DB /* BLEDeviceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7724020598727007AF1DB /* BLEDeviceListVC.swift */; };
 		73E7AF87203E23FB002BE337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E7AF86203E23FB002BE337 /* Assets.xcassets */; };
 		73E7AF8920427AD0002BE337 /* SetupFoodHandlerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */; };
 		73E7AF8B2042814A002BE337 /* foodHandlerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */; };
@@ -54,6 +57,9 @@
 		739108872046421D0081F378 /* FoodItemHPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemHPTableViewController.swift; sourceTree = "<group>"; };
 		73910889204642410081F378 /* FoodItemRTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemRTableViewController.swift; sourceTree = "<group>"; };
 		7391088B2046427D0081F378 /* SetupKitchenRTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupKitchenRTableViewController.swift; sourceTree = "<group>"; };
+		73B66A3720590F0500C28955 /* FoodResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResultVC.swift; sourceTree = "<group>"; };
+		73B66A3920590FDA00C28955 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		73E7724020598727007AF1DB /* BLEDeviceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceListVC.swift; sourceTree = "<group>"; };
 		73E7AF86203E23FB002BE337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFoodHandlerTableViewController.swift; sourceTree = "<group>"; };
 		73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodHandlerCell.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 				733A66082032A5F3004CC73F /* User.swift */,
 				733A660A2032A8A3004CC73F /* Functionalities.swift */,
 				734867572044DF7B008E7BFB /* SelectedSetup.swift */,
+				73B66A3920590FDA00C28955 /* GlobalVariables.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 				739108872046421D0081F378 /* FoodItemHPTableViewController.swift */,
 				73910889204642410081F378 /* FoodItemRTableViewController.swift */,
 				7391088B2046427D0081F378 /* SetupKitchenRTableViewController.swift */,
+				73B66A3720590F0500C28955 /* FoodResultVC.swift */,
+				73E7724020598727007AF1DB /* BLEDeviceListVC.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -249,11 +258,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kibots/Pods-Kibots-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Moscapsule/Moscapsule.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBluetooth/SwiftyBluetooth.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moscapsule.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBluetooth.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -291,6 +304,8 @@
 				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
 				7391088A204642410081F378 /* FoodItemRTableViewController.swift in Sources */,
 				735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */,
+				73B66A3820590F0500C28955 /* FoodResultVC.swift in Sources */,
+				73E7724120598727007AF1DB /* BLEDeviceListVC.swift in Sources */,
 				7391088C2046427D0081F378 /* SetupKitchenRTableViewController.swift in Sources */,
 				735D6A0A20326508001143A3 /* ViewController.swift in Sources */,
 				734867582044DF7B008E7BFB /* SelectedSetup.swift in Sources */,
@@ -299,6 +314,7 @@
 				739108882046421D0081F378 /* FoodItemHPTableViewController.swift in Sources */,
 				735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */,
 				735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */,
+				73B66A3A20590FDA00C28955 /* GlobalVariables.swift in Sources */,
 				733A66092032A5F3004CC73F /* User.swift in Sources */,
 				73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */,
 			);
@@ -444,7 +460,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siya.Kibots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -460,7 +475,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siya.Kibots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -11,6 +11,27 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class Functionalities{
+    
+    
+    //Thermapen BLE
+    public static let charUUID =     "45544942-4C55-4554-4845-524DB87AD701"
+    public static let serviceUUID =  "45544942-4C55-4554-4845-524DB87AD700"
+    
+    //Test BLE
+    // public static let charUUID =     "9AB68A9B-10BB-4D99-B232-7EB23B304E70"
+    //public static let serviceUUID =  "42320B6A-21CB-4CC1-AFDB-5EE872A600AC"
+    
+    
+    //MQTT Configuration
+    public  static let mqttHost = "34.216.110.205"
+    
+    public  static let mqttPort = 1883
+    
+    public  static let mqttTopic = "probe"
+    
+    
+    
+    
     var databaseHandle: FIRDatabaseHandle?
     var databaseHandleHolding: FIRDatabaseHandle?
     var databaseHandleProduction: FIRDatabaseHandle?
@@ -35,8 +56,14 @@ class Functionalities{
     static var tappedVendor: String?
     static var tappedKitchenR: String?
     
-    
-//    static var receivedFoodItemList = [String]()
+    static var tt_fh_selected: String?
+    static var tt_operation_selected: String?
+    static var tt_vendor_selected: String?
+    static var tt_station_selected: String? // the station selected at "take temp"
+    static var tt_fooditem_selected: String?
+    static var current_min: String?
+    static var current_max: String?
+    static var minMaxMap = [String: (String, String)]()
     
     static var userExist = false
     
@@ -233,14 +260,8 @@ class Functionalities{
                     Functionalities.holdingDict[next.key] = []
                     continue
                 }
-  //              if stationName.allValues == false{
-//                print("station value")
-//               // print(type(of: stationName))
-//                print(stationName)
-//                print(stationName.allKeys)
-//                print(stationName.allValues)
+
                 Functionalities.holdingDict[next.key] = stationName.allValues as? [String]
-//                }
             }
             
             
@@ -248,6 +269,45 @@ class Functionalities{
         })
       
     }
+    func getMinMaxMap(station: String) {
+        let user = Functionalities.myUser
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations").child(station)
+        var min_val: String?
+        var max_val: String?
+        databaseHandle = ref.observe(.value, with: {(snapshot) in
+            let enumerator = snapshot.children
+            while let next = enumerator.nextObject() as? FIRDataSnapshot {
+
+                guard let  map = next.value as? NSDictionary else{
+                    Functionalities.minMaxMap = [:]
+                    continue
+                }
+                print("allVALS")
+                print(map.allValues)
+                var mapp = map.allValues as? [String]
+                print("maPPP")
+                print(mapp)
+                
+            }
+        })
+    }
+//    func getMinMaxMap(station: String,fooditem: String){
+//        let user = Functionalities.myUser
+//        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations").child(station).child(fooditem)
+//        databaseHandle = ref.observe(.value, with: {(snapshot) in
+//            let enumerator = snapshot.children
+//            while let next = enumerator.nextObject() as? FIRDataSnapshot {
+//                
+//                guard let stationName = next.value as? NSDictionary else{
+//                    Functionalities.holdingDict[next.key] = []
+//                    continue
+//                }
+//                
+//                Functionalities.holdingDict[next.key] = stationName.allValues as? [String]
+//            }
+//        })
+//        
+//    }
     func getHoldingItems(station: String){
         
         let user = Functionalities.myUser
@@ -256,6 +316,8 @@ class Functionalities{
         databaseHandleHolding = ref.child("Holding").child(station).observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
+                print("burgerParent")
+                print(next.key)
                 if Functionalities.holdingItems.contains(next.value as! String) == false{
                     Functionalities.holdingItems.append(next.value as! String)
                 }

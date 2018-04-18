@@ -45,6 +45,10 @@ class DataAccessObject {
         self.ref.child(user.userID!).child("Operations").child("Holding").child(station).setValue(fooditems)
        // self.ref.child("Users").child(user.userID!).child("Operations").child("Holding").child(station).setValue(fooditems)
     }
+    func updateMinMaxTemp(hpr: String,user: User, station: String, fooditem: String, min: Int, max: Int){
+        self.ref.child(user.userID!).child("Operations").child(hpr).child(station).child(fooditem).child("Min").setValue(min)
+        self.ref.child(user.userID!).child("Operations").child(hpr).child(station).child(fooditem).child("Max").setValue(max)
+    }
     func addProductionStation(user: User, station: String){
         self.ref.child(user.userID!).child("Operations").child("Production").child(station).setValue(station)
        // self.ref.child("Users").child(user.userID!).child("Operations").child("Production").child(station).setValue(station)

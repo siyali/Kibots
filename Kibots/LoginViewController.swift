@@ -10,27 +10,52 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
- 
-        
-//        Functionalities.myUser?.addHoldingStation(station: "Bagel Bar")
-//        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Peanut Butter")
-//        Functionalities.myUser?.addHoldingFoodItem(station: "Bagel Bar", fooditem: "Grape Jelly")
-//        Functionalities.myUser?.addHoldingStation(station: "Grill")
-//        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Cheese")
-//        Functionalities.myUser?.addHoldingFoodItem(station: "Grill", fooditem: "Liquid Egg")
         
         print("end adding")
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        //Looks for single or multiple taps.
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+//        //tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+        
     }
-
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+        self.emailTextField.resignFirstResponder()
+        
+        self.passwordTextField.resignFirstResponder()
+        return true
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

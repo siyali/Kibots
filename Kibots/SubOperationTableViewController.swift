@@ -75,6 +75,8 @@ class SubOperationTableViewController: UITableViewController {
         Functionalities().getHoldingDict()
         Functionalities().getProductionDict()
         
+        //Functionalities().getMinMaxMap(station: Functionalities.tappedKitchenHP!)
+        
         if Functionalities.tappedOperation == "Holding" {
             Functionalities().getHoldingItems(station: Functionalities.tappedKitchenHP!)
         }else{
