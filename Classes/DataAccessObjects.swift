@@ -18,7 +18,7 @@ class DataAccessObject {
         //self.ref.child("Users").child(user.userID!).setValue(["uid": user.userID])
 //        self.ref.child("Users").child(user.userID!).setValue(["email": user.email])
 //        self.ref.child("Users").child(user.userID!).setValue(["id": user.userID])
-        self.ref.child(user.userID!).setValue(["email": user.email])
+        self.ref.child(user.userID!).setValue(["Email": user.email])
 //        self.ref.child("Users").child(user.email!).setValue(["id": user.userID])
     }
     func addFoodHandler(user: User, foodHandler: String){
@@ -39,15 +39,52 @@ class DataAccessObject {
     }
     func addHoldingFoodItem(user: User, station: String, fooditem: String){
         self.ref.child(user.userID!).child("Operations").child("Holding").child(station).child(fooditem).setValue(fooditem)
-       // self.ref.child("Users").child(user.userID!).child("Operations").child("Holding").child(station).child(fooditem).setValue(fooditem)
     }
+    func addHoldingItemMin(user: User, station: String, fooditem: String, min: Int){
+        self.ref.child(user.userID!).child("Operations").child("Holding").child(station).child(fooditem).child("Min").setValue(min)
+    }
+    func addHoldingItemMax(user: User, station: String, fooditem: String, max: Int){
+        self.ref.child(user.userID!).child("Operations").child("Holding").child(station).child(fooditem).child("Max").setValue(max)
+    }
+    func addProductionItemMin(user: User, station: String, fooditem: String, min: Int){
+        self.ref.child(user.userID!).child("Operations").child("Production").child(station).child(fooditem).child("Min").setValue(min)
+    }
+    func addProductionItemMax(user: User, station: String, fooditem: String, max: Int){
+        self.ref.child(user.userID!).child("Operations").child("Production").child(station).child(fooditem).child("Max").setValue(max)
+    }
+    
     func updateHoldingFoodItem(user: User, station: String, fooditems: [String]){
-        self.ref.child(user.userID!).child("Operations").child("Holding").child(station).setValue(fooditems)
+        var local_hold = [String: String]()
+        for item in fooditems{
+            local_hold[item] = item
+            //addHoldingFoodItem(user: user, station: station, fooditem: item)
+        }
+        
+        
+       self.ref.child(user.userID!).child("Operations").child("Holding").child(station).setValue(local_hold)
        // self.ref.child("Users").child(user.userID!).child("Operations").child("Holding").child(station).setValue(fooditems)
     }
     func updateMinMaxTemp(hpr: String,user: User, station: String, fooditem: String, min: Int, max: Int){
         self.ref.child(user.userID!).child("Operations").child(hpr).child(station).child(fooditem).child("Min").setValue(min)
         self.ref.child(user.userID!).child("Operations").child(hpr).child(station).child(fooditem).child("Max").setValue(max)
+        print("ffffoooodddd")
+        print(fooditem)
+    }
+    func updateHoldingWithMinMax(user: User, station: String, foodItems: [String], minmaxMap: [String: (Int,Int)]){
+        updateHoldingFoodItem(user: user, station: station, fooditems: foodItems)
+        print("DAO MINMAX MAP \(minmaxMap)")
+        for food in foodItems{
+            
+            
+            guard let local_tuple:(Int,Int) = minmaxMap[food] else{
+                continue
+            }
+            guard let food_array:[String:Int] = ["Min":local_tuple.0,"Max":local_tuple.1] else {
+                continue
+            }
+            self.ref.child(user.userID!).child("Operations").child("Holding").child(station).child(food).setValue(food_array)
+            
+        }
     }
     func addProductionStation(user: User, station: String){
         self.ref.child(user.userID!).child("Operations").child("Production").child(station).setValue(station)

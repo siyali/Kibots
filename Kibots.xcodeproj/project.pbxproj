@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0FFB23431E2534DCF2DF30F5 /* Pods_Kibots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9B7717DC88FAC2B8201870 /* Pods_Kibots.framework */; };
+		7319283A20A2EAE300B12AA7 /* SelectFHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283920A2EAE300B12AA7 /* SelectFHViewController.swift */; };
+		7319283C20A2FC0400B12AA7 /* SelectKSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */; };
+		7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */; };
+		7319284020A2FC6200B12AA7 /* SelectFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283F20A2FC6200B12AA7 /* SelectFoodViewController.swift */; };
 		733A66072032A4FD004CC73F /* DataAccessObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66062032A4FD004CC73F /* DataAccessObjects.swift */; };
 		733A66092032A5F3004CC73F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66082032A5F3004CC73F /* User.swift */; };
 		733A660B2032A8A3004CC73F /* Functionalities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A660A2032A8A3004CC73F /* Functionalities.swift */; };
@@ -39,6 +43,10 @@
 /* Begin PBXFileReference section */
 		403F69A7AC5AE0670622C120 /* Pods-Kibots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kibots.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kibots/Pods-Kibots.release.xcconfig"; sourceTree = "<group>"; };
 		42F20F74C3D64790BAB7E063 /* Pods-Kibots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kibots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kibots/Pods-Kibots.debug.xcconfig"; sourceTree = "<group>"; };
+		7319283920A2EAE300B12AA7 /* SelectFHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFHViewController.swift; sourceTree = "<group>"; };
+		7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectKSViewController.swift; sourceTree = "<group>"; };
+		7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOPEViewController.swift; sourceTree = "<group>"; };
+		7319283F20A2FC6200B12AA7 /* SelectFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodViewController.swift; sourceTree = "<group>"; };
 		733A66062032A4FD004CC73F /* DataAccessObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessObjects.swift; sourceTree = "<group>"; };
 		733A66082032A5F3004CC73F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		733A660A2032A8A3004CC73F /* Functionalities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functionalities.swift; sourceTree = "<group>"; };
@@ -146,6 +154,10 @@
 				7391088B2046427D0081F378 /* SetupKitchenRTableViewController.swift */,
 				73B66A3720590F0500C28955 /* FoodResultVC.swift */,
 				73E7724020598727007AF1DB /* BLEDeviceListVC.swift */,
+				7319283920A2EAE300B12AA7 /* SelectFHViewController.swift */,
+				7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */,
+				7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */,
+				7319283F20A2FC6200B12AA7 /* SelectFoodViewController.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -299,6 +311,7 @@
 				733A66072032A4FD004CC73F /* DataAccessObjects.swift in Sources */,
 				733A660B2032A8A3004CC73F /* Functionalities.swift in Sources */,
 				73E7AF8920427AD0002BE337 /* SetupFoodHandlerTableViewController.swift in Sources */,
+				7319284020A2FC6200B12AA7 /* SelectFoodViewController.swift in Sources */,
 				73E7AFA120447ED5002BE337 /* SubOperationTableViewController.swift in Sources */,
 				73910886204640450081F378 /* SetupVendorTableViewController.swift in Sources */,
 				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
@@ -315,7 +328,10 @@
 				735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */,
 				735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */,
 				73B66A3A20590FDA00C28955 /* GlobalVariables.swift in Sources */,
+				7319283C20A2FC0400B12AA7 /* SelectKSViewController.swift in Sources */,
+				7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */,
 				733A66092032A5F3004CC73F /* User.swift in Sources */,
+				7319283A20A2EAE300B12AA7 /* SelectFHViewController.swift in Sources */,
 				73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

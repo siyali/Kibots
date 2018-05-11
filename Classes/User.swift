@@ -35,6 +35,12 @@ class User {
     func addHoldingFoodItem(station: String, fooditem: String){
         dao.addHoldingFoodItem(user: self, station: station, fooditem: fooditem)
     }
+    func addHoldingItemMin(station: String, fooditem: String, min: Int){
+        dao.addHoldingItemMin(user: self, station: station, fooditem: fooditem, min: min)
+    }
+    func addHoldingItemMax(station: String, fooditem: String, max: Int){
+        dao.addHoldingItemMax(user: self, station: station, fooditem: fooditem, max: max)
+    }
     func updateHoldingFoodItem(station: String, fooditem: [String]){
         dao.updateHoldingFoodItem(user: self, station: station, fooditems: fooditem)
     }
@@ -44,6 +50,12 @@ class User {
 
     func addProductionFoodItem( station: String, fooditem: String){
         dao.addProductionFoodItem(user: self, station: station, fooditem: fooditem)
+    }
+    func addProductionItemMin(station: String, fooditem: String, min: Int){
+        dao.addProductionItemMin(user: self, station: station, fooditem: fooditem, min: min)
+    }
+    func addProductionItemMax(station: String, fooditem: String, max: Int){
+        dao.addProductionItemMax(user: self, station: station, fooditem: fooditem, max: max)
     }
     func updateProductionFoodItem( station: String, fooditem: [String]){
         dao.updateProductionFoodItem(user: self, station: station, fooditems: fooditem)
@@ -59,8 +71,12 @@ class User {
     }
     func updateMinMaxTemp(hpr: String, station: String, fooditem: String, min: Int, max: Int){
         if(hpr == "Holding") || (hpr == "Production") || (hpr == "Receiving"){
-            dao.updateMinMaxTemp(hpr: hpr, user: self, station: station, fooditem: fooditem, min: min, max:max)
+    dao.updateMinMaxTemp(hpr: hpr, user: self, station: station, fooditem: fooditem, min:min, max: max)
         }
+        
+    }
+    func updateHoldingWithMinMax(station: String, foodItems: [String], minmaxMap: [String: (Int,Int)]){
+        dao.updateHoldingWithMinMax(user: self, station: station, foodItems: foodItems, minmaxMap: minmaxMap)
         
     }
     func userExist(user:User) -> Bool {

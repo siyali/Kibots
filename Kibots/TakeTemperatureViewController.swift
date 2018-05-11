@@ -21,11 +21,11 @@ class TakeTemperatureViewController: UIViewController {
         
         super.viewDidLoad()
         // hard coded selections, used temporarily for record button testing
-        Functionalities.tt_fh_selected = "John"
-        Functionalities.tt_operation_selected = "Holding"
+//        Functionalities.tt_fh_selected = "John"
+//        Functionalities.tt_operation_selected = "Holding"
         Functionalities.tt_vendor_selected = "None"
-        Functionalities.tt_station_selected = "Lunch"
-        Functionalities.tt_fooditem_selected = "Eggs"
+//        Functionalities.tt_station_selected = "Lunch"
+//        Functionalities.tt_fooditem_selected = "Eggs"
         
         let borderAlpha : CGFloat = 0.7
         let cornerRadius : CGFloat = 5.0

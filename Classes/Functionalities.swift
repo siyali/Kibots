@@ -63,9 +63,15 @@ class Functionalities{
     static var tt_fooditem_selected: String?
     static var current_min: String?
     static var current_max: String?
-    static var minMaxMap = [String: (String, String)]()
+    
+    static var minMaxMap = [String: (Int, Int)]()
     
     static var userExist = false
+    // the followins vars are used for buttons in tt
+    static var hideOPE = true
+    static var hideKS = true
+    static var hideFood = true
+    static var enableRecord = false
     
     func getFoodHandlerList() /*-> [String]*/{
         let user = Functionalities.myUser!
@@ -260,7 +266,10 @@ class Functionalities{
                     Functionalities.holdingDict[next.key] = []
                     continue
                 }
-
+//                print("stationNameeeee:")
+//                print(stationName)
+//                print("stationALLVAL")
+//                print(stationName.allValues)
                 Functionalities.holdingDict[next.key] = stationName.allValues as? [String]
             }
             
@@ -316,14 +325,35 @@ class Functionalities{
         databaseHandleHolding = ref.child("Holding").child(station).observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
-                print("burgerParent")
-                print(next.key)
-                if Functionalities.holdingItems.contains(next.value as! String) == false{
-                    Functionalities.holdingItems.append(next.value as! String)
+                if let food_name = next.value as? String {
+                    if Functionalities.holdingItems.contains(food_name) == false{
+                        Functionalities.holdingItems.append(food_name)
+                    }
+                }
+                else{
+                    
+                    if Functionalities.holdingItems.contains(next.key as! String) == false{
+                        Functionalities.holdingItems.append(next.key as! String)
+                    }
+                    let tuple = next.value as! [String:Int]
+                    let minTemp = tuple["Min"]
+                    let maxTemp = tuple["Max"]
+                    
+                    if(maxTemp != nil) {
+                        if (minTemp != nil){
+                            Functionalities.minMaxMap[next.key] = (minTemp, maxTemp) as! (Int, Int)
+                        }
+                        else{
+                            Functionalities.minMaxMap[next.key]?.1 = maxTemp!
+                        }
+                    }else{
+                        if (minTemp != nil){
+                            Functionalities.minMaxMap[next.key]?.0 = minTemp!
+                        }
+                    }
                 }
             }
-            print("Holding items")
-            print(Functionalities.holdingItems)
+    
             
             
             
@@ -384,8 +414,6 @@ class Functionalities{
                 print(next.key)
                 guard let vendor = next.value as? NSDictionary else{
 
-                    print("guard entered")
-                    print(next.value)
 //                    if Functionalities.vendorList.contains(next.value as! String) == false{
 //                        Functionalities.vendorList.append(next.value as! String)
 //                    }
