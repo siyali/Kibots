@@ -114,6 +114,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         // lblType.text = opeType
         
         btnRecord.isEnabled = Functionalities.enableRecord
+        btnSubmit.isHidden = true
         
         btnRecord.layer.cornerRadius = 5
 //        btnTemp.layer.cornerRadius = 5
@@ -762,6 +763,9 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     @IBAction func recordButtonClicked(_ sender: Any) {
         initObserver()
         connectMosquito()
+        self.btnRecord.isEnabled = false
+        self.btnSubmit.isHidden = false
+        self.btnSubmit.setTitle("", for: .normal)
     }
     
     @IBAction func submitButtonClicked(_ sender: Any) {

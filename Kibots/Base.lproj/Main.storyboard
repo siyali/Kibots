@@ -713,8 +713,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1x-DT-gG3">
-                                <rect key="frame" x="140" y="527" width="82" height="30"/>
-                                <state key="normal" title="Record"/>
+                                <rect key="frame" x="99" y="527" width="186" height="30"/>
+                                <state key="normal" title="Take Temperature"/>
                                 <connections>
                                     <action selector="recordButtonClicked:" destination="ezd-W0-o4E" eventType="touchUpInside" id="NdA-g1-qdy"/>
                                 </connections>
@@ -829,10 +829,11 @@
                             <constraint firstItem="bxO-UE-0Cc" firstAttribute="top" secondItem="aci-bQ-Kqe" secondAttribute="bottom" constant="379" id="DMd-s7-AFf"/>
                             <constraint firstItem="SY5-Tr-JqJ" firstAttribute="top" secondItem="Gcc-9L-WeF" secondAttribute="top" constant="70" id="E37-No-Bm5"/>
                             <constraint firstItem="bxO-UE-0Cc" firstAttribute="top" secondItem="w1x-DT-gG3" secondAttribute="bottom" constant="7.5" id="ExP-uP-HSK"/>
+                            <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="w1x-DT-gG3" secondAttribute="trailing" constant="90" id="IDQ-O1-2N3"/>
                             <constraint firstItem="a0f-ij-6xn" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="20" id="JZA-Ir-0Ah"/>
+                            <constraint firstItem="w1x-DT-gG3" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="99" id="Lfy-xx-Vso"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="a0f-ij-6xn" secondAttribute="trailing" constant="20" id="QEc-YA-vCg"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="SY5-Tr-JqJ" secondAttribute="trailing" constant="20" id="QzZ-uO-9MV"/>
-                            <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="w1x-DT-gG3" secondAttribute="trailing" constant="153" id="Tbe-cz-TFL"/>
                             <constraint firstItem="a0f-ij-6xn" firstAttribute="top" secondItem="Gcc-9L-WeF" secondAttribute="top" constant="60" id="abh-bp-Gfb"/>
                             <constraint firstItem="DgY-1n-dpf" firstAttribute="top" secondItem="anu-CU-UcP" secondAttribute="bottom" constant="12" id="bR4-Sv-Maf"/>
                             <constraint firstItem="w1x-DT-gG3" firstAttribute="top" secondItem="GdB-bn-9eO" secondAttribute="bottom" constant="77" id="cXB-dD-j7s"/>
@@ -852,7 +853,6 @@
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="DgY-1n-dpf" secondAttribute="trailing" constant="128" id="pXH-y9-Wdx"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="bxO-UE-0Cc" secondAttribute="trailing" constant="30" id="thg-hk-uVT"/>
                             <constraint firstItem="DgY-1n-dpf" firstAttribute="top" secondItem="anu-CU-UcP" secondAttribute="bottom" constant="12" id="uJo-CV-bhZ"/>
-                            <constraint firstItem="w1x-DT-gG3" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="140" id="v6X-HD-d6H"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="bottom" secondItem="bxO-UE-0Cc" secondAttribute="bottom" constant="72.5" id="wTc-z1-yCC"/>
                             <constraint firstItem="GdB-bn-9eO" firstAttribute="top" secondItem="sgk-pY-Dcv" secondAttribute="bottom" constant="13" id="xne-Fh-JPd"/>
                             <constraint firstItem="sgk-pY-Dcv" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="112" id="xpA-EH-1KN"/>
