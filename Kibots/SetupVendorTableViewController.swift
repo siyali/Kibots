@@ -56,6 +56,7 @@ class SetupVendorTableViewController: UITableViewController {
         Functionalities.tappedVendor = currentCell?.textLabel!.text
         Functionalities().getVendorKitchens()
         Functionalities().getVendorDict()
+//        Functionalities().getMinMaxMapWithVendor(vendor: Functionalities.tappedVendor!, station: Functionalities.tappedKitchenR!)
 //        Functionalities.tappedVendor = Functionalities.vendorList[indexPath.row]
         
         

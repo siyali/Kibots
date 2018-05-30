@@ -10,30 +10,50 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class HomePageViewController: UIViewController {
+class SettingPageViewController: UIViewController {
 
     
     @IBOutlet weak var userEmailLabel: UILabel!
 //    @IBOutlet weak var actionsTableView: UITableView!
     
-    @IBAction func logoutButtonClicked(_ sender: Any) {
-        print("logout button clicked")
-        if FIRAuth.auth()?.currentUser != nil {
-            do {
-                try FIRAuth.auth()?.signOut()
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-                present(vc, animated: true, completion: nil)
-                print("You have successfully logged out")
-                
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+    @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var menuView: UIView!
+    
+    var menuShowing = false;
+    
+    @IBAction func openMenu(_ sender: Any) {
+        if menuShowing{
+            menuLeadingConstraint.constant = -320
+            // userEmailBtn.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }else{
+            menuLeadingConstraint.constant = 0
+            // userEmailBtn.isHidden = true
+            view.bringSubview(toFront: menuView)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
         }
+        menuShowing = !menuShowing
     }
     
+    @IBAction func settingClicked(_ sender: Any) {
+        menuLeadingConstraint.constant = -320
+        // userEmailBtn.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        menuShowing = false
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        menuLeadingConstraint.constant = -320
         
         if Functionalities.myUser != nil{
             let user = Functionalities.myUser

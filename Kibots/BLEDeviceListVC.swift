@@ -21,6 +21,12 @@ class BLEDeviceListVC: UITableViewController {
     @IBOutlet var indicator: UIActivityIndicatorView!
     
     @IBOutlet weak var lblStatus: UILabel!
+    
+    
+    @IBAction func openMenu(_ sender: Any) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -115,9 +115,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
                 
                 //Goes to home page
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController")
-                self.present(vc!, animated: true, completion: nil)
-                
+//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
+//                self.present(vc!, animated: true, completion: nil)
+
+                 self.performSegue(withIdentifier: "toHomeView", sender: self)
                 
             } else {
  //               self.showMessage(message: (error?.localizedDescription)!)

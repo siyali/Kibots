@@ -22,8 +22,10 @@
 		735D6A1220326508001143A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A1020326508001143A3 /* LaunchScreen.storyboard */; };
 		735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1920327659001143A3 /* LoginViewController.swift */; };
 		735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1B20327FBE001143A3 /* RegisterViewController.swift */; };
-		735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1D2032820B001143A3 /* HomePageViewController.swift */; };
+		735D6A1E2032820B001143A3 /* SettingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A1D2032820B001143A3 /* SettingPageViewController.swift */; };
 		735D6A24203295FF001143A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A23203295FE001143A3 /* GoogleService-Info.plist */; };
+		738D694720B3808A004E1CE5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D694620B3808A004E1CE5 /* HomeViewController.swift */; };
+		738D694B20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */; };
 		73910886204640450081F378 /* SetupVendorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910885204640450081F378 /* SetupVendorTableViewController.swift */; };
 		739108882046421D0081F378 /* FoodItemHPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739108872046421D0081F378 /* FoodItemHPTableViewController.swift */; };
 		7391088A204642410081F378 /* FoodItemRTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910889204642410081F378 /* FoodItemRTableViewController.swift */; };
@@ -59,8 +61,10 @@
 		735D6A1320326508001143A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		735D6A1920327659001143A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		735D6A1B20327FBE001143A3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		735D6A1D2032820B001143A3 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		735D6A1D2032820B001143A3 /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageViewController.swift; sourceTree = "<group>"; };
 		735D6A23203295FE001143A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		738D694620B3808A004E1CE5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectiveActionsTableViewController.swift; sourceTree = "<group>"; };
 		73910885204640450081F378 /* SetupVendorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVendorTableViewController.swift; sourceTree = "<group>"; };
 		739108872046421D0081F378 /* FoodItemHPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemHPTableViewController.swift; sourceTree = "<group>"; };
 		73910889204642410081F378 /* FoodItemRTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemRTableViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +145,7 @@
 				735D6A1320326508001143A3 /* Info.plist */,
 				735D6A1920327659001143A3 /* LoginViewController.swift */,
 				735D6A1B20327FBE001143A3 /* RegisterViewController.swift */,
-				735D6A1D2032820B001143A3 /* HomePageViewController.swift */,
+				735D6A1D2032820B001143A3 /* SettingPageViewController.swift */,
 				73E7AF8820427AD0002BE337 /* SetupFoodHandlerTableViewController.swift */,
 				73E7AF8A2042814A002BE337 /* foodHandlerCell.swift */,
 				73E7AF9A2042AD2C002BE337 /* SetupOperationsTableViewController.swift */,
@@ -158,6 +162,8 @@
 				7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */,
 				7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */,
 				7319283F20A2FC6200B12AA7 /* SelectFoodViewController.swift */,
+				738D694620B3808A004E1CE5 /* HomeViewController.swift */,
+				738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -321,14 +327,16 @@
 				73E7724120598727007AF1DB /* BLEDeviceListVC.swift in Sources */,
 				7391088C2046427D0081F378 /* SetupKitchenRTableViewController.swift in Sources */,
 				735D6A0A20326508001143A3 /* ViewController.swift in Sources */,
+				738D694720B3808A004E1CE5 /* HomeViewController.swift in Sources */,
 				734867582044DF7B008E7BFB /* SelectedSetup.swift in Sources */,
 				73E7AFA32044B562002BE337 /* TakeTemperatureViewController.swift in Sources */,
 				735D6A0820326508001143A3 /* AppDelegate.swift in Sources */,
 				739108882046421D0081F378 /* FoodItemHPTableViewController.swift in Sources */,
-				735D6A1E2032820B001143A3 /* HomePageViewController.swift in Sources */,
+				735D6A1E2032820B001143A3 /* SettingPageViewController.swift in Sources */,
 				735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */,
 				73B66A3A20590FDA00C28955 /* GlobalVariables.swift in Sources */,
 				7319283C20A2FC0400B12AA7 /* SelectKSViewController.swift in Sources */,
+				738D694B20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift in Sources */,
 				7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */,
 				733A66092032A5F3004CC73F /* User.swift in Sources */,
 				7319283A20A2EAE300B12AA7 /* SelectFHViewController.swift in Sources */,

@@ -69,6 +69,12 @@ class User {
     func addReceivingFoodItem(vendor: String, station: String, fooditem: String){
         dao.addReceivingFoodItem(user: self, vendor: vendor, station: station, fooditem: fooditem)
     }
+    func addReceivingItemMin(vendor: String, station: String, fooditem: String, min: Int){
+        dao.addReceivingItemMin(user: self, vendor: vendor, station: station, fooditem: fooditem, min: min)
+    }
+    func addReceivingItemMax(vendor: String, station: String, fooditem: String, max: Int){
+        dao.addReceivingItemMax(user: self, vendor: vendor, station: station, fooditem: fooditem, max: max)
+    }
     func updateMinMaxTemp(hpr: String, station: String, fooditem: String, min: Int, max: Int){
         if(hpr == "Holding") || (hpr == "Production") || (hpr == "Receiving"){
     dao.updateMinMaxTemp(hpr: hpr, user: self, station: station, fooditem: fooditem, min:min, max: max)
@@ -78,6 +84,13 @@ class User {
     func updateHoldingWithMinMax(station: String, foodItems: [String], minmaxMap: [String: (Int,Int)]){
         dao.updateHoldingWithMinMax(user: self, station: station, foodItems: foodItems, minmaxMap: minmaxMap)
         
+    }
+    func updateProductionWithMinMax(station: String, foodItems: [String], minmaxMap: [String: (Int,Int)]){
+        dao.updateProductionWithMinMax(user: self, station: station, foodItems: foodItems, minmaxMap: minmaxMap)
+        
+    }
+    func updateReceivingWithMinMax(vendor: String, station: String, foodItems: [String],minmaxMap:[String:(Int,Int)]) {
+        dao.updateReceivingWithMinMax(user: self, vendor: vendor, station: station, foodItems: foodItems, minmaxMap: minmaxMap)
     }
     func userExist(user:User) -> Bool {
         let ref = FIRDatabase.database().reference()

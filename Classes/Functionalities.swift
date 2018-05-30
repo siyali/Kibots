@@ -198,6 +198,7 @@ class Functionalities{
                 }
             }
         }
+        //databaseHandleReceiving
         
     }
 /*
@@ -293,9 +294,32 @@ class Functionalities{
                 }
                 print("allVALS")
                 print(map.allValues)
-                var mapp = map.allValues as? [String]
+                let mapp = map.allValues as? [String]
                 print("maPPP")
                 print(mapp)
+                
+            }
+        })
+    }
+    func getMinMaxMapWithVendor(vendor: String, station: String) {
+        let user = Functionalities.myUser
+       // let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations").child("Receiving").child(vendor).child(station)
+        let ref = FIRDatabase.database().reference().child((user?.userID)!).child("Operations").child(station)
+        var min_val: String?
+        var max_val: String?
+        databaseHandle = ref.observe(.value, with: {(snapshot) in
+            let enumerator = snapshot.children
+            while let next = enumerator.nextObject() as? FIRDataSnapshot {
+                
+                guard let  map = next.value as? NSDictionary else{
+                    Functionalities.minMaxMap = [:]
+                    continue
+                }
+                print("allVALS \(map.allValues)")
+                var mapp = map.allValues as? [String]
+                print("maPPP \(mapp)")
+                print("Func minmaxmap \(Functionalities.minMaxMap)")
+                
                 
             }
         })
@@ -367,12 +391,32 @@ class Functionalities{
         databaseHandleHolding = ref.child("Production").child(station).observe(.value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let next = enumerator.nextObject() as? FIRDataSnapshot {
-                if Functionalities.productionItems.contains(next.value as! String) == false{
-                    Functionalities.productionItems.append(next.value as! String)
+                if let food_name = next.value as? String{
+                    if Functionalities.productionItems.contains(food_name) == false{
+                        Functionalities.productionItems.append(food_name)
+                    }
+                }
+                else{
+                    if Functionalities.productionItems.contains(next.key as! String) == false{
+                        Functionalities.productionItems.append(next.key as! String)
+                    }
+                    let tuple = next.value as! [String:Int]
+                    let minTemp = tuple["Min"]
+                    let maxTemp = tuple["Max"]
+                    
+                    if (maxTemp != nil){
+                        if minTemp != nil{
+                            Functionalities.minMaxMap[next.key] = (minTemp,maxTemp) as! (Int,Int)
+                        }else{
+                            Functionalities.minMaxMap[next.key]?.1 = maxTemp!
+                        }
+                    }else{
+                        if minTemp != nil{
+                            Functionalities.minMaxMap[next.key]?.0 = minTemp!
+                        }
+                    }
                 }
             }
-            print("Production items")
-            print(Functionalities.productionItems)
             
             
             
@@ -420,17 +464,14 @@ class Functionalities{
                     continue
                 }
                 //Functionalities.productionDict[next.key] = stationName.allValues as? [String]
-                print("all vendors")
-                print(vendor) // all stations
+//                print("all vendors")
+//                print(vendor) // all stations
 //                print("station name should be")
 //                print(station.key)
                 
                 for (key,value) in vendor{
-                    print("inside one vendor iteration")
-                    print("station name")
-                    print(key)
-                    print("dictionary of food items")
-                    print(value)
+                    print("inside one vendor iteration, station name \(key) value \(value)")
+
                     var vArr:[String] = []
                     guard value is NSDictionary else{
                         receivingDict[key as! String] = []
@@ -439,14 +480,53 @@ class Functionalities{
                     }
                     
                     for v in value as! NSDictionary{
-                        print("food iname")
-                        print(v.value)
-                        vArr.append(v.value as! String)
+                        print("food iname \(v.key)")
+                        vArr.append(v.key as! String)
+                        let food_n = v.key as! String
+                        
+                        guard let temp_dict = v.value as? NSDictionary else{
+                            continue
+                        }
+                        var minTemp = 40
+                        var maxTemp = 140
+                        for minmax in v.value as! NSDictionary{
+                            
+//                            let tuple = minmax as! [String:Int]
+//                            let minTemp = tuple["Min"]
+//                            let maxTemp = tuple["Max"]
+                            let tuple = [minmax.key as! String:minmax.value as! Int]
+                            if minmax.key as! String == "Min" {
+                                minTemp = tuple["Min"]!
+                            }else{
+                                maxTemp = tuple["Max"]!
+                            }
+                            print("tuple \(tuple)")
+                        }
+                        Functionalities.minMaxMap[food_n] = (40,140)
+                        if maxTemp != nil{
+                            print(" maxTemp \(maxTemp)  food_n \(food_n)")
+                            
+                            Functionalities.minMaxMap[food_n]?.1 = maxTemp
+                            print("Functionalities minmaxmap[food_n] \(Functionalities.minMaxMap[food_n])")
+                            print("Functionalities minmaxmap \(Functionalities.minMaxMap)")
+                        }
+                        
+                        if minTemp != nil{
+                            print("minTemp \(minTemp) food_n \(food_n)")
+                            Functionalities.minMaxMap[food_n]?.0 = minTemp 
+                            print("Functionalities minmaxmap[food_n] \(Functionalities.minMaxMap[food_n])")
+                            print("Functionalities minmaxmap \(Functionalities.minMaxMap)")
+                        }
+                            
+                            
+                            
+                        
+                        
                     }
 //                    if (Functionalities.receivingDict[key as! String]?.contains(value as! String))! == false{
                     receivingDict[key as! String] = vArr
-                    print("receiving dict")
-                    print(receivingDict)
+//                    print("receiving dict")
+//                    print(receivingDict)
 //                    }
                 }
                 Functionalities.vendorDict[next.key] = receivingDict

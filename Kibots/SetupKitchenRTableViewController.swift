@@ -47,6 +47,7 @@ class SetupKitchenRTableViewController: UITableViewController {
         Functionalities().getVendorDict()
         Functionalities().getVendorKitchenFoodList()
 
+        Functionalities().getMinMaxMapWithVendor(vendor: Functionalities.tappedVendor!, station: Functionalities.tappedKitchenR!)
         //let receivedDict = Functionalities.vendorDict[Functionalities.tappedVendor!]
 
         print("check null")
