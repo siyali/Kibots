@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         Functionalities().getHoldingDict()
         Functionalities().getProductionStations()
         Functionalities().getProductionDict()
-       
+        Functionalities().getCorrActions()
         Functionalities().getVendorList()
       
         
@@ -49,7 +49,27 @@ class HomeViewController: UIViewController {
         menuShowing = false
     }
     
+    @IBAction func connectBtnClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "homeToDevice", sender: self)
+//        DispatchQueue.main.async {
+//            print("going once")
+//            self.performSegue(withIdentifier: "homeToDevice", sender: self)
+//        }
+        
+    }
     
+    @IBAction func settingBtnClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "homeToSetting", sender: self)
+//        DispatchQueue.main.async {
+//            print("going once")
+//            self.performSegue(withIdentifier: "homeToSetting", sender: self)
+//        }
+        
+//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//            print("going once")
+//            self.performSegue(withIdentifier: "homeToSetting", sender: self)
+//        })
+    }
     
     @IBAction func openMenu(_ sender: Any) {
         if menuShowing{

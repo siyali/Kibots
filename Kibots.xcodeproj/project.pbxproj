@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FFB23431E2534DCF2DF30F5 /* Pods_Kibots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9B7717DC88FAC2B8201870 /* Pods_Kibots.framework */; };
+		7301F3C420C85FC300679C2F /* SelectCAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7301F3C320C85FC200679C2F /* SelectCAViewController.swift */; };
 		7319283A20A2EAE300B12AA7 /* SelectFHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283920A2EAE300B12AA7 /* SelectFHViewController.swift */; };
 		7319283C20A2FC0400B12AA7 /* SelectKSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */; };
 		7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */; };
@@ -26,6 +27,7 @@
 		735D6A24203295FF001143A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735D6A23203295FE001143A3 /* GoogleService-Info.plist */; };
 		738D694720B3808A004E1CE5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D694620B3808A004E1CE5 /* HomeViewController.swift */; };
 		738D694B20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */; };
+		738D694D20C1C5ED004E1CE5 /* SlidingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D694C20C1C5ED004E1CE5 /* SlidingSegue.swift */; };
 		73910886204640450081F378 /* SetupVendorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910885204640450081F378 /* SetupVendorTableViewController.swift */; };
 		739108882046421D0081F378 /* FoodItemHPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739108872046421D0081F378 /* FoodItemHPTableViewController.swift */; };
 		7391088A204642410081F378 /* FoodItemRTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73910889204642410081F378 /* FoodItemRTableViewController.swift */; };
@@ -45,6 +47,7 @@
 /* Begin PBXFileReference section */
 		403F69A7AC5AE0670622C120 /* Pods-Kibots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kibots.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kibots/Pods-Kibots.release.xcconfig"; sourceTree = "<group>"; };
 		42F20F74C3D64790BAB7E063 /* Pods-Kibots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kibots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kibots/Pods-Kibots.debug.xcconfig"; sourceTree = "<group>"; };
+		7301F3C320C85FC200679C2F /* SelectCAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCAViewController.swift; sourceTree = "<group>"; };
 		7319283920A2EAE300B12AA7 /* SelectFHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFHViewController.swift; sourceTree = "<group>"; };
 		7319283B20A2FC0400B12AA7 /* SelectKSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectKSViewController.swift; sourceTree = "<group>"; };
 		7319283D20A2FC3A00B12AA7 /* SelectOPEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOPEViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		735D6A23203295FE001143A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		738D694620B3808A004E1CE5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectiveActionsTableViewController.swift; sourceTree = "<group>"; };
+		738D694C20C1C5ED004E1CE5 /* SlidingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSegue.swift; sourceTree = "<group>"; };
 		73910885204640450081F378 /* SetupVendorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVendorTableViewController.swift; sourceTree = "<group>"; };
 		739108872046421D0081F378 /* FoodItemHPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemHPTableViewController.swift; sourceTree = "<group>"; };
 		73910889204642410081F378 /* FoodItemRTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemRTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				7319283F20A2FC6200B12AA7 /* SelectFoodViewController.swift */,
 				738D694620B3808A004E1CE5 /* HomeViewController.swift */,
 				738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */,
+				738D694C20C1C5ED004E1CE5 /* SlidingSegue.swift */,
+				7301F3C320C85FC200679C2F /* SelectCAViewController.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				73E7AF9D2042AE78002BE337 /* operationCell.swift in Sources */,
 				7391088A204642410081F378 /* FoodItemRTableViewController.swift in Sources */,
 				735D6A1A20327659001143A3 /* LoginViewController.swift in Sources */,
+				7301F3C420C85FC300679C2F /* SelectCAViewController.swift in Sources */,
 				73B66A3820590F0500C28955 /* FoodResultVC.swift in Sources */,
 				73E7724120598727007AF1DB /* BLEDeviceListVC.swift in Sources */,
 				7391088C2046427D0081F378 /* SetupKitchenRTableViewController.swift in Sources */,
@@ -339,6 +346,7 @@
 				738D694B20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift in Sources */,
 				7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */,
 				733A66092032A5F3004CC73F /* User.swift in Sources */,
+				738D694D20C1C5ED004E1CE5 /* SlidingSegue.swift in Sources */,
 				7319283A20A2EAE300B12AA7 /* SelectFHViewController.swift in Sources */,
 				73E7AF9B2042AD2C002BE337 /* SetupOperationsTableViewController.swift in Sources */,
 			);

@@ -29,6 +29,9 @@ class User {
         dao.updateFoodHandler(user: self, foodHandlers: fh)
         
     }
+    func updateCorrectiveActionList(actions: [String]){
+        dao.updateCorrectiveActions(user: self, correctiveActions: actions)
+    }
     func addHoldingStation( station: String){
         dao.addHoldingStation(user: self, station: station)
     }

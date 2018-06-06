@@ -29,14 +29,57 @@ class CorrectiveActionsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Functionalities.corrActions.count
     }
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath)
+        
+        
+        // Configure the cell...
+        //        cell.foodHandlerLabel.text = Functionalities.fhList[indexPath.row]
+        cell.textLabel?.text = Functionalities.corrActions[indexPath.row]
+        return cell
+    }
+    @IBAction func addButtonClicked(_ sender: Any) {
+        let alertController = UIAlertController(title: "Adding Corrective Action", message: "Please input name:", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let field = alertController.textFields![0]
+            if field.text != "" /* as? UITextField*/ {
+                
+                
+                // store the food handler data
+                //                Functionalities.myUser?.addFoodHandlerProfile(fh: field.text!)
+                print("action added")
+                Functionalities.corrActions.append(field.text!)
+               // Functionalities.myUser?.updateFoodHandlerProfile(fh: Functionalities.fhList)
+                Functionalities.myUser?.updateCorrectiveActionList(actions: Functionalities.corrActions)
+                //                DispatchQueue.main.async{
+                self.tableView.reloadData()
+                //              }
+                
+            } else {
+                print("no user input")
+                // user did not fill field
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Action:"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

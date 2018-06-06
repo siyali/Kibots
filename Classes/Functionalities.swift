@@ -38,7 +38,8 @@ class Functionalities{
     var databaseHandleReceiving: FIRDatabaseHandle?
     static var myUser: User?
     static var currentSelection: SelectedSetup?
-    static var fhList = [String]()
+    static var fhList = [String]() // list of food handlers
+    
     static var holdingStations = [String]()
     static var productionStations = [String]()
     static var vendorList = [String]()
@@ -46,6 +47,7 @@ class Functionalities{
     static var vendorKitchenFoodList = [String]()
     static var holdingDict = [String: [String]]() // holdingDict[KitchenStation] = [fn1, fn2,...]
     static var holdingItems = [String]()
+    static var corrActions = [String]() // list of corrective actions
     static var productionDict = [String: [String]]()
     static var productionItems = [String]()
    // static var receivingDict = [String: [String]]() // receiving[KitchenStation] = [fn0, fn10,...]
@@ -61,16 +63,18 @@ class Functionalities{
     static var tt_vendor_selected: String?
     static var tt_station_selected: String? // the station selected at "take temp"
     static var tt_fooditem_selected: String?
+    static var tt_corrAction_selected: String?
     static var current_min: String?
     static var current_max: String?
     
     static var minMaxMap = [String: (Int, Int)]()
-    
+    static var notes: String?
     static var userExist = false
     // the followins vars are used for buttons in tt
     static var hideOPE = true
     static var hideKS = true
     static var hideFood = true
+    static var hideCA = true
     static var enableRecord = false
     
     func getFoodHandlerList() /*-> [String]*/{
@@ -114,6 +118,21 @@ class Functionalities{
             }
         })
  
+    }
+    func getCorrActions(){
+        let user = Functionalities.myUser!
+        let ref = FIRDatabase.database().reference()
+        databaseHandle = ref.child(user.userID!).child("Corrective Actions").observe(.value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            while let next = enumerator.nextObject() as? FIRDataSnapshot {
+                let actionName = next.value as! String
+                print(actionName)
+                
+                if Functionalities.corrActions.contains(actionName) == false{
+                    Functionalities.corrActions.append(actionName)
+                }
+            }
+        })
     }
 //    func getHoldingFoodList() -> [String]{
 //        var foodlist = [String]()

@@ -8,17 +8,23 @@
 
 import UIKit
 
-class FoodItemHPTableViewController: UITableViewController {
+class FoodItemHPTableViewController: UITableViewController,UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // gesture recognizer
 //        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
 //        self.view.addGestureRecognizer(longPressRecognizer)
-        
+        //original works
         let holdToSet = UILongPressGestureRecognizer(target: self, action:#selector(self.longPressSet));
         holdToSet.minimumPressDuration = 1.00;
+        holdToSet.delegate = self
+        holdToSet.delaysTouchesBegan = true
         self.view.addGestureRecognizer(holdToSet)
+        
+        //end of original
+        
+        
         //self.tableView.reloadData()
 //        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(CalorieCountViewController.handleLongPress))
         

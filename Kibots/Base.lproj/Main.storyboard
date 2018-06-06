@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YlQ-6Q-wxC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ezd-W0-o4E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,7 +94,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonClicked:" destination="YlQ-6Q-wxC" eventType="touchUpInside" id="E3k-F7-6ZH"/>
-                                    <segue destination="x7M-xw-jOi" kind="presentation" identifier="RegisterView" id="0hW-kV-jqb"/>
+                                    <segue destination="x7M-xw-jOi" kind="custom" identifier="RegisterView" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="0hW-kV-jqb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uN1-bO-TSF">
@@ -116,12 +115,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="fZg-G0-Ipb" id="VQH-3u-bQw"/>
                         <outlet property="passwordTextField" destination="uCS-w6-e3Q" id="T2g-xo-e02"/>
-                        <segue destination="edd-dK-glq" kind="show" identifier="toHomeView" id="V2W-SZ-fNa"/>
+                        <segue destination="edd-dK-glq" kind="custom" identifier="toHomeView" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="V2W-SZ-fNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCA-Es-1ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-206"/>
+            <point key="canvasLocation" x="414" y="-423"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="g3B-n7-nI2">
@@ -205,12 +204,12 @@
                         <outlet property="emailTextField" destination="B08-X4-hhE" id="ag5-cJ-1Ly"/>
                         <outlet property="passwordTextField" destination="Tpf-e8-Ik2" id="g36-rc-As8"/>
                         <outlet property="repeatPasswordTextField" destination="aXu-uv-ezN" id="a4B-3d-2qz"/>
-                        <segue destination="edd-dK-glq" kind="show" identifier="regToHomeView" id="wiO-5o-I2k"/>
+                        <segue destination="edd-dK-glq" kind="custom" identifier="regToHomeView" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="wiO-5o-I2k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJK-Mh-2xX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="516"/>
+            <point key="canvasLocation" x="-612" y="1501"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="xmH-mq-ht6">
@@ -239,7 +238,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Food Temperature"/>
                                 <connections>
-                                    <segue destination="bBy-iP-NSu" kind="presentation" id="BUa-9Y-OJB"/>
+                                    <segue destination="bBy-iP-NSu" kind="custom" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="BUa-9Y-OJB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cb9-vb-zGc">
@@ -263,7 +262,8 @@
                                             <color key="titleColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ElL-0j-7Wt" kind="presentation" id="c8d-Mu-dyk"/>
+                                            <action selector="connectBtnClicked:" destination="SxA-v3-97u" eventType="touchUpInside" id="tuO-h7-hNW"/>
+                                            <segue destination="ElL-0j-7Wt" kind="custom" identifier="homeToDevice" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="c8d-Mu-dyk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IY-DI-BJu">
@@ -273,7 +273,8 @@
                                             <color key="titleColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="zWb-o2-Y1p" kind="presentation" id="iZR-ZU-8Mo"/>
+                                            <action selector="settingBtnClicked:" destination="SxA-v3-97u" eventType="touchUpInside" id="H8t-PN-cEw"/>
+                                            <segue destination="zWb-o2-Y1p" kind="custom" identifier="homeToSetting" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="iZR-ZU-8Mo"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kibots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-km-W7Y">
@@ -353,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXf-0q-SSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488.8" y="-615.74212893553226"/>
+            <point key="canvasLocation" x="1314" y="-797"/>
         </scene>
         <!--Setting Page View Controller-->
         <scene sceneID="bLu-9k-wkg">
@@ -368,7 +369,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Corrective Actions"/>
                                 <connections>
-                                    <segue destination="xvR-rZ-X2E" kind="presentation" id="gVY-jh-b78"/>
+                                    <segue destination="xvR-rZ-X2E" kind="custom" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="gVY-jh-b78"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUJ-Oh-fVz">
@@ -376,7 +377,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Food Handlers"/>
                                 <connections>
-                                    <segue destination="Djl-dd-tpo" kind="presentation" id="gxI-Ef-HB2"/>
+                                    <segue destination="Djl-dd-tpo" kind="custom" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="gxI-Ef-HB2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx5-dK-Rs0">
@@ -395,13 +396,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Operations &amp; Food Items"/>
                                 <connections>
-                                    <segue destination="nms-b6-Yer" kind="presentation" id="BPb-46-Yop"/>
+                                    <segue destination="nms-b6-Yer" kind="custom" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="BPb-46-Yop"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLB-au-7tv">
-                                <rect key="frame" x="-320" y="64" width="320" height="603"/>
+                                <rect key="frame" x="-320" y="20" width="320" height="647"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-PX-Uay">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-PX-Uay">
                                         <rect key="frame" x="62" y="197" width="62" height="39"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -413,7 +414,7 @@
                                             <segue destination="SxA-v3-97u" kind="presentation" id="8lR-5g-uOz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLD-JF-NX7">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLD-JF-NX7">
                                         <rect key="frame" x="62" y="267" width="195" height="39"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <state key="normal" title="Device Connection">
@@ -423,7 +424,7 @@
                                             <segue destination="ElL-0j-7Wt" kind="presentation" id="1gG-8n-aUR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXd-Hw-1xH">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXd-Hw-1xH">
                                         <rect key="frame" x="62" y="355" width="94" height="39"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <state key="normal" title="Settings">
@@ -439,7 +440,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-ZW-en7">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-ZW-en7">
                                         <rect key="frame" x="18" y="546" width="92" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Contact Us">
@@ -506,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opm-Y9-aMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3028" y="197.45127436281859"/>
+            <point key="canvasLocation" x="3031" y="107"/>
         </scene>
         <!--Operations-->
         <scene sceneID="UYp-Kd-acg">
@@ -552,13 +553,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBarButton" destination="LtN-7L-Gvk" id="fyF-5l-s4W"/>
-                        <segue destination="VVb-Td-8Iu" kind="show" identifier="subOpKitchenSeg" id="PBK-RM-A41"/>
-                        <segue destination="ZzQ-hp-qxN" kind="presentation" identifier="subOpVendorSeg" id="hrR-U9-nb7"/>
+                        <segue destination="VVb-Td-8Iu" kind="custom" identifier="subOpKitchenSeg" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="PBK-RM-A41"/>
+                        <segue destination="ZzQ-hp-qxN" kind="custom" identifier="subOpVendorSeg" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="hrR-U9-nb7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DMj-qi-aoy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7893.6000000000004" y="330.58470764617692"/>
+            <point key="canvasLocation" x="7302" y="198"/>
         </scene>
         <!--Kitchen Stations-->
         <scene sceneID="xCM-Ff-5x1">
@@ -589,17 +590,14 @@
                                 <segue destination="nms-b6-Yer" kind="show" id="KTJ-if-Tnl"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="XVB-9j-B19">
-                                <connections>
-                                    <action selector="addButtonClicked:" destination="jAh-VN-fg3" id="nBK-E6-HU2"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="dKb-ol-DxS"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XVB-9j-B19">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="jAh-VN-fg3" id="nBK-E6-HU2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="gO8-ps-QQB" kind="show" identifier="foodHP" id="YB3-UL-IfC"/>
+                        <segue destination="gO8-ps-QQB" kind="presentation" identifier="foodHP" id="YB3-UL-IfC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLS-Cy-hk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -829,7 +827,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Sit-oF-Lyf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionCell" id="Sit-oF-Lyf">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sit-oF-Lyf" id="560-TR-1IU">
@@ -844,13 +842,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Corrective Actions" id="Mkh-8q-DUo" userLabel="Corrective Actions">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="nsK-wc-8aT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Fm-Dn-V10"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="nsK-wc-8aT">
+                            <connections>
+                                <segue destination="QNX-fr-VG0" kind="presentation" id="A62-ME-6Lm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Fm-Dn-V10">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="NQ3-3d-475" id="rw9-C3-hJo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWR-CG-g7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5980" y="260.41979010494754"/>
+            <point key="canvasLocation" x="6167" y="81"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8rJ-eD-fOx">
@@ -868,7 +874,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGu-BB-OLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7085.6000000000004" y="330.58470764617692"/>
+            <point key="canvasLocation" x="6700" y="1194"/>
         </scene>
         <!--Food Handler-->
         <scene sceneID="247-W9-21g">
@@ -927,7 +933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAs-dI-9Ei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4268" y="1003.4482758620691"/>
+            <point key="canvasLocation" x="4402" y="850"/>
         </scene>
         <!--Food ResultVC-->
         <scene sceneID="eWh-UL-rDb">
@@ -973,8 +979,8 @@
                                     <action selector="recordButtonClicked:" destination="ezd-W0-o4E" eventType="touchUpInside" id="NdA-g1-qdy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxO-UE-0Cc">
-                                <rect key="frame" x="16" y="564.5" width="329" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxO-UE-0Cc">
+                                <rect key="frame" x="16" y="610.5" width="329" height="30"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
                                     <action selector="submitButtonClicked:" destination="ezd-W0-o4E" eventType="touchUpInside" id="Tyl-fb-woL"/>
@@ -1066,12 +1072,28 @@
                                     </label>
                                 </subviews>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmE-HW-sT2">
+                                <rect key="frame" x="280" y="552" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Note"/>
+                                <connections>
+                                    <action selector="addNote:" destination="ezd-W0-o4E" eventType="touchUpInside" id="PP4-he-dKw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fO-D8-vfH">
+                                <rect key="frame" x="89" y="572" width="205" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Corrective Action"/>
+                                <connections>
+                                    <segue destination="VjL-Wc-fAi" kind="presentation" id="UY3-1U-teQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="anu-CU-UcP" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="118" id="3Ch-4F-B2B"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="sgk-pY-Dcv" secondAttribute="trailing" constant="111" id="3dx-ES-YeB"/>
-                            <constraint firstItem="aci-bQ-Kqe" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" id="4bo-97-wFC"/>
+                            <constraint firstItem="aci-bQ-Kqe" firstAttribute="leading" secondItem="Gcc-9L-WeF" secondAttribute="leading" constant="5" id="4bo-97-wFC"/>
                             <constraint firstItem="Gcc-9L-WeF" firstAttribute="trailing" secondItem="Z3A-dp-Y73" secondAttribute="trailing" constant="20" id="6BC-fH-IAB"/>
                             <constraint firstItem="HTF-mT-W4L" firstAttribute="top" secondItem="SY5-Tr-JqJ" secondAttribute="bottom" constant="8" id="6ud-Cp-jwu"/>
                             <constraint firstItem="sgk-pY-Dcv" firstAttribute="top" secondItem="DgY-1n-dpf" secondAttribute="bottom" constant="8" id="76F-n8-bVT"/>
@@ -1132,6 +1154,7 @@
                         <outlet property="presentTempView" destination="Z3A-dp-Y73" id="ebu-cc-lTb"/>
                         <outlet property="safeLbl1" destination="3Ts-bd-AtT" id="OpL-Dv-lWz"/>
                         <outlet property="safeLbl2" destination="fGH-jG-Vmw" id="9IC-qd-7DI"/>
+                        <outlet property="selectCorrAction" destination="3fO-D8-vfH" id="R2f-4C-620"/>
                         <outlet property="selectFHbtn" destination="anu-CU-UcP" id="XD9-zF-box"/>
                         <outlet property="selectFoodbtn" destination="GdB-bn-9eO" id="Fd8-ki-gVj"/>
                         <outlet property="selectKSbtn" destination="sgk-pY-Dcv" id="mKW-hR-7ok"/>
@@ -1143,7 +1166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTN-pn-JVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3405.5999999999999" y="1020.5397301349326"/>
+            <point key="canvasLocation" x="3405.5999999999999" y="871.21439280359823"/>
         </scene>
         <!--SelectOPEViewController-->
         <scene sceneID="jPM-GV-pVe">
@@ -1319,6 +1342,56 @@
             </objects>
             <point key="canvasLocation" x="4268" y="1795.9520239880062"/>
         </scene>
+        <!--SelectCA View Controller-->
+        <scene sceneID="kjA-3S-q8p">
+            <objects>
+                <viewController id="VjL-Wc-fAi" customClass="SelectCAViewController" customModule="Kibots" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVb-Kz-jZw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHI-YB-RlD">
+                                <rect key="frame" x="0.0" y="115" width="375" height="236"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="caCell" id="Vmn-Dj-8kb">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vmn-Dj-8kb" id="Hcw-Bm-pWa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-ML-3JY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Corrective Actions" id="brP-6r-FWp">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="xIg-oX-WoO"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-On-ipG">
+                                <rect key="frame" x="125" y="474" width="125" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TH0-15-zpc"/>
+                    </view>
+                    <connections>
+                        <outlet property="selectBtn" destination="HTn-On-ipG" id="Y9M-Mr-au2"/>
+                        <outlet property="tblCA" destination="iHI-YB-RlD" id="fuG-os-NUP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LTS-S3-w1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5168.8000000000002" y="1764.4677661169417"/>
+        </scene>
         <!--Take Temperature View Controller-->
         <scene sceneID="szt-QW-v7d">
             <objects>
@@ -1383,7 +1456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iC7-hu-stz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="1599"/>
+            <point key="canvasLocation" x="894" y="2363"/>
         </scene>
         <!--Vendor-->
         <scene sceneID="u6a-Z2-r0E">
@@ -1421,7 +1494,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="2on-LW-apM" kind="show" identifier="kitchenR" id="Gu0-fk-qvY"/>
+                        <segue destination="2on-LW-apM" kind="custom" identifier="kitchenR" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="Gu0-fk-qvY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sup-gD-9Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1464,7 +1537,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8ga-TX-XAQ" kind="show" identifier="fooditemRSeg" id="5JO-TF-gCd"/>
+                        <segue destination="8ga-TX-XAQ" kind="custom" identifier="fooditemRSeg" customClass="SlidingSegue" customModule="Kibots" customModuleProvider="target" id="5JO-TF-gCd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0Y-JC-mSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1543,7 +1616,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ea-B8-um3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6673" y="-587"/>
+            <point key="canvasLocation" x="8518" y="-797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ix7-BT-Yhc">
@@ -1579,7 +1652,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBi-q2-N0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9688.7999999999993" y="895.50224887556226"/>
+            <point key="canvasLocation" x="9124" y="1020"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oh1-0b-YMj">
@@ -1651,7 +1724,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgS-7F-cBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="1599"/>
+            <point key="canvasLocation" x="103" y="2363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tQd-k3-wrr">
@@ -1669,7 +1742,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fz7-Uh-qnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2591" y="1021"/>
+            <point key="canvasLocation" x="1750" y="1379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jpc-Qh-HJC">
@@ -1687,7 +1760,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZD-uX-CWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1446" y="459"/>
+            <point key="canvasLocation" x="462" y="970"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Enc-Bv-qjZ">
@@ -1705,7 +1778,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRA-x5-MYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="198"/>
+            <point key="canvasLocation" x="2073" y="609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K7X-9z-3c1">
@@ -1723,21 +1796,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbP-p0-9Zm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4950" y="260"/>
+            <point key="canvasLocation" x="5287" y="215"/>
         </scene>
     </scenes>
     <resources>
         <image name="kibots_logo" width="433" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dBJ-aM-UFQ"/>
-        <segue reference="L6u-So-WYB"/>
-        <segue reference="BUa-9Y-OJB"/>
+        <segue reference="iKF-Zx-eM3"/>
+        <segue reference="wiO-5o-I2k"/>
+        <segue reference="u9x-fW-eZD"/>
         <segue reference="1gG-8n-aUR"/>
         <segue reference="xc0-Yb-PeD"/>
         <segue reference="hrR-U9-nb7"/>
         <segue reference="PBK-RM-A41"/>
-        <segue reference="BPb-46-Yop"/>
+        <segue reference="KTJ-if-Tnl"/>
+        <segue reference="A62-ME-6Lm"/>
         <segue reference="8lR-5g-uOz"/>
     </inferredMetricsTieBreakers>
 </document>

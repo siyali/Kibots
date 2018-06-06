@@ -67,6 +67,7 @@ class SettingPageViewController: UIViewController {
         Functionalities().getProductionDict()
 //        Functionalities().getVendorDict()
 //        Functionalities().getVendorKitchens()
+        Functionalities().getCorrActions()
         Functionalities().getVendorList()
 //        Functionalities().getProductionDict(user: Functionalities.myUser!)
         

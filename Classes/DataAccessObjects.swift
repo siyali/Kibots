@@ -33,6 +33,9 @@ class DataAccessObject {
 //        self.ref.child("Users").child(user.userID!).child("Food Handlers").setValue(foodHandlers)
         
     }
+    func updateCorrectiveActions(user:User, correctiveActions: [String]) {
+        self.ref.child(user.userID!).child("Corrective Actions").setValue(correctiveActions)
+    }
     func addHoldingStation(user: User, station: String){
         self.ref.child(user.userID!).child("Operations").child("Holding").child(station).setValue(station)
         //self.ref.child("Users").child(user.userID!).child("Operations").child("Holding").child(station).setValue(station)

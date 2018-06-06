@@ -20,6 +20,10 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var selectFoodbtn: UIButton!
 
+    @IBOutlet weak var selectCorrAction: UIButton!
+    
+    
+    
     @IBOutlet weak var presentTempView: UIView!
     
 //    @IBOutlet var lblEmpname: UILabel!
@@ -94,14 +98,14 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
- /*disabled for progress bar/stack view testing
+ /*disabled for progress bar/stack view testing*/
         Functionalities().getFoodHandlerList()
         Functionalities().getHoldingStations()
         Functionalities().getHoldingDict()
         Functionalities().getProductionStations()
         Functionalities().getProductionDict()
         Functionalities().getVendorList()
-*/
+        Functionalities().getCorrActions()
         
         if Functionalities.tt_station_selected != nil{
             if Functionalities.tt_operation_selected == "Holding" {
@@ -116,6 +120,9 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         btnRecord.isEnabled = Functionalities.enableRecord
         btnSubmit.isHidden = true
         
+        selectCorrAction.isHidden = true
+        selectCorrAction.isEnabled = false
+        
         btnRecord.layer.cornerRadius = 5
 //        btnTemp.layer.cornerRadius = 5
 //        btnDiscard.layer.cornerRadius = 5
@@ -125,6 +132,12 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         } else{
             print("loading " + Functionalities.tt_fh_selected!)
             selectFHbtn.setTitle(Functionalities.tt_fh_selected,for: .normal)
+        }
+        
+        if Functionalities.tt_corrAction_selected == nil{
+            selectCorrAction.setTitle("Select Corrective Action", for: .normal)
+        }else{
+            selectCorrAction.setTitle( Functionalities.tt_corrAction_selected, for: .normal)
         }
         
         if Functionalities.tt_operation_selected == nil{
@@ -151,6 +164,9 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         }
         if (Functionalities.hideFood){
             selectFoodbtn.isHidden = true
+        }
+        if (Functionalities.hideCA) {
+            selectCorrAction.isHidden = true
         }
         
         
@@ -343,8 +359,14 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
                 self.setBarTemperature(reading: reading)
                 if reading < Float(self.maxTemp) && reading > Float(self.minTemp){
                     self.btnSubmit.setTitle("Take Corrective Action", for: .normal)
+                    Functionalities.hideCA = false
+                    self.selectCorrAction.isHidden = false
+                    self.selectCorrAction.isEnabled = true
                 }else{
                     self.btnSubmit.setTitle("Accept Food", for: .normal)
+                    Functionalities.hideCA = true
+                    self.selectCorrAction.isHidden = true
+                    self.selectCorrAction.isEnabled = false
                 }
                 
             }
@@ -681,7 +703,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         self.recordedTempIs = self.currentTempIs
         print("recorded TEMP \(self.recordedTempIs)")
 
-        var notes = ""
+        
 //        if let comment = txtComment.text
 //        {
 //            notes = comment
@@ -717,7 +739,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
 //                "food_name":strFood,    //Eggs
                 "temperature":self.recordedTempIs,
                 "corrective_action":correctiveAction,
-                "notes":notes
+                "notes":Functionalities.notes
         ]
         print("recordedTEMPTEMP \(self.recordedTempIs)")
         
@@ -768,6 +790,39 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         self.btnSubmit.setTitle("", for: .normal)
     }
     
+    @IBAction func addNote(_ sender: Any) {
+        let alertController = UIAlertController(title: "Adding Note", message: "Please add/edit your message:", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let note_field = alertController.textFields![0]
+
+            if note_field.text != "" /* as? UITextField*/ {
+                
+                Functionalities.notes = note_field.text
+               
+                
+            } else {
+                print("no user input")
+                // user did not fill field
+            }
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            if Functionalities.notes != nil{
+                textField.placeholder = "Current Note: " + Functionalities.notes!
+            }else{
+                textField.placeholder = "Current Note Null"
+            }
+        }
+        
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     @IBAction func submitButtonClicked(_ sender: Any) {
         if(peripheral != nil && peripheral?.state == .connected && currentTempIs > 0.0)
         {
@@ -779,7 +834,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
 //            let tag = sender.tag;
             var correctiveAction = ""
             if self.btnSubmit.title(for: .normal) == "Take Corrective Action"{
-                correctiveAction = "need to be set"
+                correctiveAction = Functionalities.tt_corrAction_selected!
             }else{
                 correctiveAction = "Not Required"
             }
