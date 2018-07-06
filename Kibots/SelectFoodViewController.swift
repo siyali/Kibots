@@ -24,7 +24,9 @@ class SelectFoodViewController: UIViewController,UITableViewDelegate,UITableView
             arrFood = Functionalities.productionItems
         } else{
             // TEMPORARY
-            arrFood = Functionalities.holdingItems
+            Functionalities().getVendorDict()
+            Functionalities().getVendorKitchenFoodListTT()
+            arrFood = Functionalities.vendorKitchenFoodListTT
         }
         // Do any additional setup after loading the view.
     }

@@ -40,7 +40,6 @@ class BLEDeviceListVC: UITableViewController {
             if(GlobalVariables.sharedManager.peripheral?.state == .connected)
             {
                 self.lblStatus.text = "Status:Connected"
-                
                 peripheralList.append(GlobalVariables.sharedManager.peripheral!)
                 
                 self.tableView.reloadData()

@@ -16,6 +16,7 @@
 		733A66072032A4FD004CC73F /* DataAccessObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66062032A4FD004CC73F /* DataAccessObjects.swift */; };
 		733A66092032A5F3004CC73F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A66082032A5F3004CC73F /* User.swift */; };
 		733A660B2032A8A3004CC73F /* Functionalities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A660A2032A8A3004CC73F /* Functionalities.swift */; };
+		733DC3DB20ED6929005C9AFE /* SelectVENViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733DC3DA20ED6929005C9AFE /* SelectVENViewController.swift */; };
 		734867582044DF7B008E7BFB /* SelectedSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734867572044DF7B008E7BFB /* SelectedSetup.swift */; };
 		735D6A0820326508001143A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0720326508001143A3 /* AppDelegate.swift */; };
 		735D6A0A20326508001143A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D6A0920326508001143A3 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		733A66062032A4FD004CC73F /* DataAccessObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessObjects.swift; sourceTree = "<group>"; };
 		733A66082032A5F3004CC73F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		733A660A2032A8A3004CC73F /* Functionalities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functionalities.swift; sourceTree = "<group>"; };
+		733DC3DA20ED6929005C9AFE /* SelectVENViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVENViewController.swift; sourceTree = "<group>"; };
 		734867572044DF7B008E7BFB /* SelectedSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSetup.swift; sourceTree = "<group>"; };
 		735D6A0420326508001143A3 /* Kibots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kibots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735D6A0720326508001143A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				738D694A20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift */,
 				738D694C20C1C5ED004E1CE5 /* SlidingSegue.swift */,
 				7301F3C320C85FC200679C2F /* SelectCAViewController.swift */,
+				733DC3DA20ED6929005C9AFE /* SelectVENViewController.swift */,
 			);
 			path = Kibots;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				735D6A1E2032820B001143A3 /* SettingPageViewController.swift in Sources */,
 				735D6A1C20327FBE001143A3 /* RegisterViewController.swift in Sources */,
 				73B66A3A20590FDA00C28955 /* GlobalVariables.swift in Sources */,
+				733DC3DB20ED6929005C9AFE /* SelectVENViewController.swift in Sources */,
 				7319283C20A2FC0400B12AA7 /* SelectKSViewController.swift in Sources */,
 				738D694B20B5FDBD004E1CE5 /* CorrectiveActionsTableViewController.swift in Sources */,
 				7319283E20A2FC3A00B12AA7 /* SelectOPEViewController.swift in Sources */,

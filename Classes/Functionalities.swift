@@ -44,7 +44,9 @@ class Functionalities{
     static var productionStations = [String]()
     static var vendorList = [String]()
     static var vendorKitchens = [String]()
+    static var vendorKitchensTT = [String]()
     static var vendorKitchenFoodList = [String]()
+    static var vendorKitchenFoodListTT = [String]()
     static var holdingDict = [String: [String]]() // holdingDict[KitchenStation] = [fn1, fn2,...]
     static var holdingItems = [String]()
     static var corrActions = [String]() // list of corrective actions
@@ -75,6 +77,7 @@ class Functionalities{
     static var hideKS = true
     static var hideFood = true
     static var hideCA = true
+    static var hideVEN = true
     static var enableRecord = false
     
     func getFoodHandlerList() /*-> [String]*/{
@@ -196,6 +199,44 @@ class Functionalities{
                 }
             }
         }
+        
+    }
+    func getVendorKitchensTT(){
+        var tmp_vendorDict = Functionalities.vendorDict
+        //        getOperationDict(user: Functionalities.myUser!)
+        if Functionalities.tt_vendor_selected != nil {
+            guard (tmp_vendorDict[Functionalities.tt_vendor_selected!]) != nil else{
+                Functionalities.vendorKitchensTT = []
+                return
+            }
+            for (key,_) in tmp_vendorDict[Functionalities.tt_vendor_selected!]!{
+                if Functionalities.vendorKitchensTT.contains(key) == false{
+                    Functionalities.vendorKitchensTT.append(key)
+                }
+            }
+        }
+        
+    }
+    func getVendorKitchenFoodListTT() /*-> [String]*/{
+        //     var receivedAllFood = [String]()
+        Functionalities().getVendorDict()
+        Functionalities().getVendorKitchensTT()
+        
+        var tmp_vendorDict = Functionalities.vendorDict
+        if Functionalities.tt_vendor_selected != nil{
+            let tmp_kitchenDict = tmp_vendorDict[Functionalities.tt_vendor_selected!]
+            if Functionalities.tt_station_selected != nil {
+                guard (tmp_kitchenDict![Functionalities.tt_station_selected!]) != nil else{
+                    return
+                }
+                for key in tmp_kitchenDict![Functionalities.tt_station_selected!]!{
+                    if Functionalities.vendorKitchenFoodListTT.contains(key) == false{
+                        Functionalities.vendorKitchenFoodListTT.append(key)
+                    }
+                }
+            }
+        }
+        //databaseHandleReceiving
         
     }
     func getVendorKitchenFoodList() /*-> [String]*/{

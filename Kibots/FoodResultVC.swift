@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 import Moscapsule
 import SwiftyBluetooth
 import CoreBluetooth
-class FoodResultVC: UIViewController,UITextViewDelegate {
+class FoodResultVC: UIViewController,UITextViewDelegate,CLLocationManagerDelegate {
 
     @IBOutlet weak var selectFHbtn: UIButton!
     
@@ -22,6 +24,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
 
     @IBOutlet weak var selectCorrAction: UIButton!
     
+    @IBOutlet weak var selectVENbtn: UIButton!
     
     
     @IBOutlet weak var presentTempView: UIView!
@@ -46,6 +49,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var btnSubmit: UIButton!
     
     
+    @IBOutlet weak var btnAddNote: UIButton!
     
 //    @IBOutlet var view2: UIView!
     
@@ -93,10 +97,30 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     var recordedTempIs : Float = 0.0;
     var correctiveActionTaken : String  = ""
     var endTimeStamp : Date = Date()
-    
+    var location_coord = ["0.0","0.0"]
+    let locationManager = CLLocationManager()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        location_coord[0] = String(locValue.latitude)
+        location_coord[1] = String(locValue.longitude)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+        
         
  /*disabled for progress bar/stack view testing*/
         Functionalities().getFoodHandlerList()
@@ -112,6 +136,8 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
                 Functionalities().getHoldingItems(station: Functionalities.tt_station_selected!)
             }else if Functionalities.tt_operation_selected == "Production"{
                 Functionalities().getProductionItems(station: Functionalities.tt_station_selected!)
+            }else if Functionalities.tt_operation_selected == "Receiving" {
+                Functionalities().getVendorList()
             }
         }
         Indicator.hidesWhenStopped = true
@@ -155,7 +181,11 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         } else{
             selectFoodbtn.setTitle(Functionalities.tt_fooditem_selected, for: .normal)
         }
-        
+        if Functionalities.tt_vendor_selected == nil{
+            selectVENbtn.setTitle("Select Vendor", for: .normal)
+        }else{
+            selectVENbtn.setTitle(Functionalities.tt_vendor_selected, for: .normal)
+        }
         if (Functionalities.hideOPE){
             selectOPEbtn.isHidden = true
         }
@@ -167,6 +197,9 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         }
         if (Functionalities.hideCA) {
             selectCorrAction.isHidden = true
+        }
+        if (Functionalities.hideVEN){
+            selectVENbtn.isHidden = true
         }
         
         
@@ -358,7 +391,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
             
                 self.setBarTemperature(reading: reading)
                 if reading < Float(self.maxTemp) && reading > Float(self.minTemp){
-                    self.btnSubmit.setTitle("Take Corrective Action", for: .normal)
+                    self.btnSubmit.setTitle("Submit/Take Actions", for: .normal)
                     Functionalities.hideCA = false
                     self.selectCorrAction.isHidden = false
                     self.selectCorrAction.isEnabled = true
@@ -559,7 +592,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
     
     func connectMosquito()
     {
-        
+        var flag_var = true
         // set MQTT Client Configuration
         //let mqttConfig = MQTTConfig(clientId: "kibots", host: "54.87.231.127", port: 1883, keepAlive: 60)
         moscapsule_init()
@@ -602,12 +635,14 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
                 self.Indicator.isHidden = true
                 
             }
+            print("messages after transaction recorded")
             
         }
         
         // create new MQTT Connection
         mqttClient = MQTT.newConnection(mqttConfig)
         print("created connection MQTT")
+        
  
         
     }
@@ -616,9 +651,10 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         
         self.mqttClient?.unsubscribe(Functionalities.mqttTopic)
         self.mqttClient?.disconnect()
+        self.performSegue(withIdentifier: "ttToHome", sender: self)
+//        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+       // self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
         
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
         
     }
     
@@ -711,13 +747,27 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
         
         endTimeStamp = Date();
         print("check sendMQTT")
+        var client_loc_str = "not accessible"
+        print("locations_got = \(location_coord[0]) \(location_coord[1])")
+        if Double(location_coord[0]) != nil {
+            client_loc_str = location_coord[0] + "," + location_coord[1]
+        }
+        print("client_loc_str = \(client_loc_str)")
+        var supplier = "None"
+        if Functionalities.tt_vendor_selected != nil{
+            supplier = Functionalities.tt_vendor_selected!
+        }
+        var note_str = ""
+        if Functionalities.notes != nil{
+            note_str = Functionalities.notes!
+        }
         let package : [String:Any] =
             
             [
                 "client_name":"Siya",
                 "client_number":"001",
-                "client_location":"32.8743015,-117.2431993",
-                "email_id": "simon678910@hotmail.com",
+                "client_location" : client_loc_str,
+                "email_id": Functionalities.myUser?.email!,
                 //"email_id":"victor.moreno@compass-usa.com",
                 //"sensor_MAC":"00:1e:c0:50:6a:a2",
                 "sensor_MAC":"2e:1e:c9:70:6a:a2",
@@ -732,14 +782,14 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
                 "employee": Functionalities.tt_fh_selected!,
                 "food_station": Functionalities.tt_station_selected!,
                 //test above
-                "supplier": "None",
+                "supplier": supplier,
      //           "supplier": Functionalities.tt_vendor_selected!,  // None
                 "food_name": Functionalities.tt_fooditem_selected!,
               //  "temperature": 136.0,
 //                "food_name":strFood,    //Eggs
                 "temperature":self.recordedTempIs,
                 "corrective_action":correctiveAction,
-                "notes":Functionalities.notes
+                "notes":note_str
         ]
         print("recordedTEMPTEMP \(self.recordedTempIs)")
         
@@ -799,7 +849,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
             if note_field.text != "" /* as? UITextField*/ {
                 
                 Functionalities.notes = note_field.text
-               
+                self.btnAddNote.setTitle("Edit Note", for: .normal)
                 
             } else {
                 print("no user input")
@@ -833,7 +883,7 @@ class FoodResultVC: UIViewController,UITextViewDelegate {
             
 //            let tag = sender.tag;
             var correctiveAction = ""
-            if self.btnSubmit.title(for: .normal) == "Take Corrective Action"{
+            if self.btnSubmit.title(for: .normal) == "Submit/Take Actions"{
                 correctiveAction = Functionalities.tt_corrAction_selected!
             }else{
                 correctiveAction = "Not Required"

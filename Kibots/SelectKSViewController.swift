@@ -27,7 +27,9 @@ class SelectKSViewController: UIViewController,UITableViewDelegate,UITableViewDa
             arrKitchen = Functionalities.productionStations
         } else{
             // TEMPORARY
-            arrKitchen = Functionalities.holdingStations
+            Functionalities().getVendorDict()
+            Functionalities().getVendorKitchenFoodListTT()
+            arrKitchen = Functionalities.vendorKitchensTT
         }
         // Do any additional setup after loading the view.
     }

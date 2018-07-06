@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectOPEViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var arrOpe = ["Holding","Production"]
+    var arrOpe = ["Holding","Production","Receiving"]
     var selected_operation: String?
     @IBOutlet weak var tblOPE: UITableView!
     
@@ -30,7 +30,14 @@ class SelectOPEViewController: UIViewController,UITableViewDelegate,UITableViewD
         if(selected_operation != nil){
             Functionalities.tt_operation_selected = selected_operation
             print("checking" + Functionalities.tt_operation_selected!)
-            Functionalities.hideKS = false
+            if selected_operation == "Receiving" {
+                Functionalities.hideVEN = false
+                Functionalities().getVendorDict()
+                Functionalities().getVendorKitchenFoodListTT()
+            } else{
+                Functionalities.hideKS = false
+                Functionalities.hideVEN = true
+            }
             selectBtn.isEnabled = false
             selectBtn.setTitle("Selected", for: .normal)
             

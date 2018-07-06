@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func connectBtnClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "homeToDevice", sender: self)
+        
 //        DispatchQueue.main.async {
 //            print("going once")
 //            self.performSegue(withIdentifier: "homeToDevice", sender: self)
